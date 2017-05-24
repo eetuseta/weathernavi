@@ -1,0 +1,2477 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Weather en Route</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+      #map > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3){display:none;}
+      #map > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(1){display:none;}
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+  function initMap() {
+  var siikalatva = {lat: 64.179265, lng: 25.804715};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 6,
+    center: siikalatva,
+    zoomControl: true,
+    scaleControl: true,
+    streetViewControl: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      mapTypeIds: [
+        google.maps.MapTypeId.ROADMAP,
+        google.maps.MapTypeId.TERRAIN
+      ]
+    }
+  });
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer({
+    draggable: false,
+    map: map
+  });  displayRoute('Helsinki', 'Utsjoki', directionsService,
+      directionsDisplay);  var station0 = '<div id="content0"><pre>'+
+'Station:     Sotkamo<br>'+
+'Coordinates: 64.11197 28.33639<br>'+
+'Time(s):     08:14 08:22 08:31 08:32 08:46 <br>'+
+'</pre></div>';
+  var station_infowindow0 = new google.maps.InfoWindow({
+    content: station0,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position0 = {lat: 64.11197, lng: 28.33639};  var station_marker0 = new google.maps.Marker({
+    position: station_position0,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Sotkamo'
+  });  station_marker0.addListener('click', function() {
+    station_infowindow0.open(map, station_marker0);
+  });  var station1 = '<div id="content1"><pre>'+
+'Station:     Tohmajärvi<br>'+
+'Coordinates: 62.23539 30.34662<br>'+
+'Time(s):     04:54 04:57 05:02 05:17 05:18 05:21 <br>'+
+'</pre></div>';
+  var station_infowindow1 = new google.maps.InfoWindow({
+    content: station1,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position1 = {lat: 62.23539, lng: 30.34662};  var station_marker1 = new google.maps.Marker({
+    position: station_position1,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Tohmajärvi'
+  });  station_marker1.addListener('click', function() {
+    station_infowindow1.open(map, station_marker1);
+  });  var station2 = '<div id="content2"><pre>'+
+'Station:     Sodankylä<br>'+
+'Coordinates: 68.08422 27.18501<br>'+
+'Time(s):     15:53 16:08 16:23 <br>'+
+'</pre></div>';
+  var station_infowindow2 = new google.maps.InfoWindow({
+    content: station2,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position2 = {lat: 68.08422, lng: 27.18501};  var station_marker2 = new google.maps.Marker({
+    position: station_position2,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Sodankylä'
+  });  station_marker2.addListener('click', function() {
+    station_infowindow2.open(map, station_marker2);
+  });  var station3 = '<div id="content3"><pre>'+
+'Station:     Helsinki<br>'+
+'Coordinates: 60.20867 25.19590<br>'+
+'Time(s):     00:16 <br>'+
+'</pre></div>';
+  var station_infowindow3 = new google.maps.InfoWindow({
+    content: station3,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position3 = {lat: 60.20867, lng: 25.1959};  var station_marker3 = new google.maps.Marker({
+    position: station_position3,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Helsinki'
+  });  station_marker3.addListener('click', function() {
+    station_infowindow3.open(map, station_marker3);
+  });  var station4 = '<div id="content4"><pre>'+
+'Station:     Sodankylä<br>'+
+'Coordinates: 67.36663 26.62901<br>'+
+'Time(s):     14:34 14:49 15:04 15:07 15:08 15:23 15:38 <br>'+
+'</pre></div>';
+  var station_infowindow4 = new google.maps.InfoWindow({
+    content: station4,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position4 = {lat: 67.36663, lng: 26.62901};  var station_marker4 = new google.maps.Marker({
+    position: station_position4,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Sodankylä'
+  });  station_marker4.addListener('click', function() {
+    station_infowindow4.open(map, station_marker4);
+  });  var station5 = '<div id="content5"><pre>'+
+'Station:     Helsinki<br>'+
+'Coordinates: 60.20307 24.96131<br>'+
+'Time(s):     00:07 00:09 00:13 <br>'+
+'</pre></div>';
+  var station_infowindow5 = new google.maps.InfoWindow({
+    content: station5,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position5 = {lat: 60.20307, lng: 24.96131};  var station_marker5 = new google.maps.Marker({
+    position: station_position5,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Helsinki'
+  });  station_marker5.addListener('click', function() {
+    station_infowindow5.open(map, station_marker5);
+  });  var station6 = '<div id="content6"><pre>'+
+'Station:     Helsinki<br>'+
+'Coordinates: 60.17169 24.94460<br>'+
+'Time(s):     23:55 23:55 <br>'+
+'</pre></div>';
+  var station_infowindow6 = new google.maps.InfoWindow({
+    content: station6,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position6 = {lat: 60.17169, lng: 24.9446};  var station_marker6 = new google.maps.Marker({
+    position: station_position6,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Helsinki'
+  });  station_marker6.addListener('click', function() {
+    station_infowindow6.open(map, station_marker6);
+  });  var station7 = '<div id="content7"><pre>'+
+'Station:     Helsinki<br>'+
+'Coordinates: 60.17523 24.94459<br>'+
+'Time(s):     23:56 23:58 23:58 23:59 <br>'+
+'</pre></div>';
+  var station_infowindow7 = new google.maps.InfoWindow({
+    content: station7,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position7 = {lat: 60.17523, lng: 24.94459};  var station_marker7 = new google.maps.Marker({
+    position: station_position7,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Helsinki'
+  });  station_marker7.addListener('click', function() {
+    station_infowindow7.open(map, station_marker7);
+  });  var station8 = '<div id="content8"><pre>'+
+'Station:     Virolahti<br>'+
+'Coordinates: 60.52720 27.67274<br>'+
+'Time(s):     02:12 <br>'+
+'</pre></div>';
+  var station_infowindow8 = new google.maps.InfoWindow({
+    content: station8,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position8 = {lat: 60.5272, lng: 27.67274};  var station_marker8 = new google.maps.Marker({
+    position: station_position8,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Virolahti'
+  });  station_marker8.addListener('click', function() {
+    station_infowindow8.open(map, station_marker8);
+  });  var station9 = '<div id="content9"><pre>'+
+'Station:     Ylitornio<br>'+
+'Coordinates: 66.52952 24.64960<br>'+
+'Time(s):     12:49 <br>'+
+'</pre></div>';
+  var station_infowindow9 = new google.maps.InfoWindow({
+    content: station9,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position9 = {lat: 66.52952, lng: 24.6496};  var station_marker9 = new google.maps.Marker({
+    position: station_position9,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Ylitornio'
+  });  station_marker9.addListener('click', function() {
+    station_infowindow9.open(map, station_marker9);
+  });  var station10 = '<div id="content10"><pre>'+
+'Station:     Ilomantsi<br>'+
+'Coordinates: 62.76966 30.97533<br>'+
+'Time(s):     05:36 05:40 05:40 05:42 05:57 <br>'+
+'</pre></div>';
+  var station_infowindow10 = new google.maps.InfoWindow({
+    content: station10,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position10 = {lat: 62.76966, lng: 30.97533};  var station_marker10 = new google.maps.Marker({
+    position: station_position10,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Ilomantsi'
+  });  station_marker10.addListener('click', function() {
+    station_infowindow10.open(map, station_marker10);
+  });  var station11 = '<div id="content11"><pre>'+
+'Station:     Inari<br>'+
+'Coordinates: 68.41506 27.41326<br>'+
+'Time(s):     16:38 <br>'+
+'</pre></div>';
+  var station_infowindow11 = new google.maps.InfoWindow({
+    content: station11,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position11 = {lat: 68.41506, lng: 27.41326};  var station_marker11 = new google.maps.Marker({
+    position: station_position11,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Inari'
+  });  station_marker11.addListener('click', function() {
+    station_infowindow11.open(map, station_marker11);
+  });  var station12 = '<div id="content12"><pre>'+
+'Station:     Imatra<br>'+
+'Coordinates: 61.17185 28.75242<br>'+
+'Time(s):     03:12 03:27 <br>'+
+'</pre></div>';
+  var station_infowindow12 = new google.maps.InfoWindow({
+    content: station12,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position12 = {lat: 61.17185, lng: 28.75242};  var station_marker12 = new google.maps.Marker({
+    position: station_position12,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Imatra'
+  });  station_marker12.addListener('click', function() {
+    station_infowindow12.open(map, station_marker12);
+  });  var station13 = '<div id="content13"><pre>'+
+'Station:     Utsjoki<br>'+
+'Coordinates: 69.75637 27.00678<br>'+
+'Time(s):     18:53 <br>'+
+'</pre></div>';
+  var station_infowindow13 = new google.maps.InfoWindow({
+    content: station13,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position13 = {lat: 69.75637, lng: 27.00678};  var station_marker13 = new google.maps.Marker({
+    position: station_position13,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Utsjoki'
+  });  station_marker13.addListener('click', function() {
+    station_infowindow13.open(map, station_marker13);
+  });  var station14 = '<div id="content14"><pre>'+
+'Station:     Utsjoki<br>'+
+'Coordinates: 69.75700 27.01200<br>'+
+'Time(s):     18:38 19:00 <br>'+
+'</pre></div>';
+  var station_infowindow14 = new google.maps.InfoWindow({
+    content: station14,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position14 = {lat: 69.757, lng: 27.012};  var station_marker14 = new google.maps.Marker({
+    position: station_position14,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Utsjoki'
+  });  station_marker14.addListener('click', function() {
+    station_infowindow14.open(map, station_marker14);
+  });  var station15 = '<div id="content15"><pre>'+
+'Station:     Inari<br>'+
+'Coordinates: 68.61335 27.41897<br>'+
+'Time(s):     16:53 17:08 <br>'+
+'</pre></div>';
+  var station_infowindow15 = new google.maps.InfoWindow({
+    content: station15,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position15 = {lat: 68.61335, lng: 27.41897};  var station_marker15 = new google.maps.Marker({
+    position: station_position15,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Inari'
+  });  station_marker15.addListener('click', function() {
+    station_infowindow15.open(map, station_marker15);
+  });  var station16 = '<div id="content16"><pre>'+
+'Station:     Inari<br>'+
+'Coordinates: 69.14089 27.26567<br>'+
+'Time(s):     17:23 17:38 17:53 18:08 18:23 <br>'+
+'</pre></div>';
+  var station_infowindow16 = new google.maps.InfoWindow({
+    content: station16,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position16 = {lat: 69.14089, lng: 27.26567};  var station_marker16 = new google.maps.Marker({
+    position: station_position16,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Inari'
+  });  station_marker16.addListener('click', function() {
+    station_infowindow16.open(map, station_marker16);
+  });  var station17 = '<div id="content17"><pre>'+
+'Station:     Valtimo<br>'+
+'Coordinates: 63.66730 28.82927<br>'+
+'Time(s):     07:44 07:59 <br>'+
+'</pre></div>';
+  var station_infowindow17 = new google.maps.InfoWindow({
+    content: station17,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position17 = {lat: 63.6673, lng: 28.82927};  var station_marker17 = new google.maps.Marker({
+    position: station_position17,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Valtimo'
+  });  station_marker17.addListener('click', function() {
+    station_infowindow17.open(map, station_marker17);
+  });  var station18 = '<div id="content18"><pre>'+
+'Station:     Joensuu<br>'+
+'Coordinates: 62.60118 29.76316<br>'+
+'Time(s):     06:12 06:17 06:19 06:19 <br>'+
+'</pre></div>';
+  var station_infowindow18 = new google.maps.InfoWindow({
+    content: station18,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position18 = {lat: 62.60118, lng: 29.76316};  var station_marker18 = new google.maps.Marker({
+    position: station_position18,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Joensuu'
+  });  station_marker18.addListener('click', function() {
+    station_infowindow18.open(map, station_marker18);
+  });  var station19 = '<div id="content19"><pre>'+
+'Station:     Juuka<br>'+
+'Coordinates: 63.23236 29.23397<br>'+
+'Time(s):     06:59 07:14 <br>'+
+'</pre></div>';
+  var station_infowindow19 = new google.maps.InfoWindow({
+    content: station19,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position19 = {lat: 63.23236, lng: 29.23397};  var station_marker19 = new google.maps.Marker({
+    position: station_position19,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Juuka'
+  });  station_marker19.addListener('click', function() {
+    station_infowindow19.open(map, station_marker19);
+  });  var station20 = '<div id="content20"><pre>'+
+'Station:     Kajaani<br>'+
+'Coordinates: 64.28275 27.67332<br>'+
+'Time(s):     09:12 09:27 09:42 <br>'+
+'</pre></div>';
+  var station_infowindow20 = new google.maps.InfoWindow({
+    content: station20,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position20 = {lat: 64.28275, lng: 27.67332};  var station_marker20 = new google.maps.Marker({
+    position: station_position20,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Kajaani'
+  });  station_marker20.addListener('click', function() {
+    station_infowindow20.open(map, station_marker20);
+  });  var station21 = '<div id="content21"><pre>'+
+'Station:     Kajaani<br>'+
+'Coordinates: 64.21678 27.75194<br>'+
+'Time(s):     08:53 08:54 08:57 <br>'+
+'</pre></div>';
+  var station_infowindow21 = new google.maps.InfoWindow({
+    content: station21,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position21 = {lat: 64.21678, lng: 27.75194};  var station_marker21 = new google.maps.Marker({
+    position: station_position21,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Kajaani'
+  });  station_marker21.addListener('click', function() {
+    station_infowindow21.open(map, station_marker21);
+  });  var station22 = '<div id="content22"><pre>'+
+'Station:     Kemi<br>'+
+'Coordinates: 65.75000 24.58333<br>'+
+'Time(s):     11:47 12:02 12:06 12:06 12:07 12:08 12:09 12:10 12:10 12:11 12:13 <br>'+
+'</pre></div>';
+  var station_infowindow22 = new google.maps.InfoWindow({
+    content: station22,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position22 = {lat: 65.75, lng: 24.58333};  var station_marker22 = new google.maps.Marker({
+    position: station_position22,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Kemi'
+  });  station_marker22.addListener('click', function() {
+    station_infowindow22.open(map, station_marker22);
+  });  var station23 = '<div id="content23"><pre>'+
+'Station:     Kemi<br>'+
+'Coordinates: 65.77961 24.57942<br>'+
+'Time(s):     12:19 12:19 12:34 <br>'+
+'</pre></div>';
+  var station_infowindow23 = new google.maps.InfoWindow({
+    content: station23,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position23 = {lat: 65.77961, lng: 24.57942};  var station_marker23 = new google.maps.Marker({
+    position: station_position23,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Kemi'
+  });  station_marker23.addListener('click', function() {
+    station_infowindow23.open(map, station_marker23);
+  });  var station24 = '<div id="content24"><pre>'+
+'Station:     Kitee<br>'+
+'Coordinates: 62.10000 30.15000<br>'+
+'Time(s):     04:27 04:42 04:46 <br>'+
+'</pre></div>';
+  var station_infowindow24 = new google.maps.InfoWindow({
+    content: station24,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position24 = {lat: 62.1, lng: 30.15};  var station_marker24 = new google.maps.Marker({
+    position: station_position24,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Kitee'
+  });  station_marker24.addListener('click', function() {
+    station_infowindow24.open(map, station_marker24);
+  });  var station25 = '<div id="content25"><pre>'+
+'Station:     Kouvola<br>'+
+'Coordinates: 60.86667 26.70000<br>'+
+'Time(s):     01:27 <br>'+
+'</pre></div>';
+  var station_infowindow25 = new google.maps.InfoWindow({
+    content: station25,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position25 = {lat: 60.86667, lng: 26.7};  var station_marker25 = new google.maps.Marker({
+    position: station_position25,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Kouvola'
+  });  station_marker25.addListener('click', function() {
+    station_infowindow25.open(map, station_marker25);
+  });  var station26 = '<div id="content26"><pre>'+
+'Station:     Kouvola<br>'+
+'Coordinates: 60.89077 26.92915<br>'+
+'Time(s):     01:42 <br>'+
+'</pre></div>';
+  var station_infowindow26 = new google.maps.InfoWindow({
+    content: station26,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position26 = {lat: 60.89077, lng: 26.92915};  var station_marker26 = new google.maps.Marker({
+    position: station_position26,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Kouvola'
+  });  station_marker26.addListener('click', function() {
+    station_infowindow26.open(map, station_marker26);
+  });  var station27 = '<div id="content27"><pre>'+
+'Station:     Kouvola<br>'+
+'Coordinates: 60.89839 26.94882<br>'+
+'Time(s):     01:57 <br>'+
+'</pre></div>';
+  var station_infowindow27 = new google.maps.InfoWindow({
+    content: station27,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position27 = {lat: 60.89839, lng: 26.94882};  var station_marker27 = new google.maps.Marker({
+    position: station_position27,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Kouvola'
+  });  station_marker27.addListener('click', function() {
+    station_infowindow27.open(map, station_marker27);
+  });  var station28 = '<div id="content28"><pre>'+
+'Station:     Lappeenranta<br>'+
+'Coordinates: 61.05871 28.18871<br>'+
+'Time(s):     02:42 <br>'+
+'</pre></div>';
+  var station_infowindow28 = new google.maps.InfoWindow({
+    content: station28,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position28 = {lat: 61.05871, lng: 28.18871};  var station_marker28 = new google.maps.Marker({
+    position: station_position28,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Lappeenranta'
+  });  station_marker28.addListener('click', function() {
+    station_infowindow28.open(map, station_marker28);
+  });  var station29 = '<div id="content29"><pre>'+
+'Station:     Lappeenranta<br>'+
+'Coordinates: 61.04416 28.15092<br>'+
+'Time(s):     02:27 <br>'+
+'</pre></div>';
+  var station_infowindow29 = new google.maps.InfoWindow({
+    content: station29,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position29 = {lat: 61.04416, lng: 28.15092};  var station_marker29 = new google.maps.Marker({
+    position: station_position29,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Lappeenranta'
+  });  station_marker29.addListener('click', function() {
+    station_infowindow29.open(map, station_marker29);
+  });  var station30 = '<div id="content30"><pre>'+
+'Station:     Lappeenranta<br>'+
+'Coordinates: 61.19820 28.47308<br>'+
+'Time(s):     02:57 <br>'+
+'</pre></div>';
+  var station_infowindow30 = new google.maps.InfoWindow({
+    content: station30,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position30 = {lat: 61.1982, lng: 28.47308};  var station_marker30 = new google.maps.Marker({
+    position: station_position30,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Lappeenranta'
+  });  station_marker30.addListener('click', function() {
+    station_infowindow30.open(map, station_marker30);
+  });  var station31 = '<div id="content31"><pre>'+
+'Station:     Loviisa<br>'+
+'Coordinates: 60.45659 26.22505<br>'+
+'Time(s):     00:47 00:48 00:57 01:12 <br>'+
+'</pre></div>';
+  var station_infowindow31 = new google.maps.InfoWindow({
+    content: station31,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position31 = {lat: 60.45659, lng: 26.22505};  var station_marker31 = new google.maps.Marker({
+    position: station_position31,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Loviisa'
+  });  station_marker31.addListener('click', function() {
+    station_infowindow31.open(map, station_marker31);
+  });  var station32 = '<div id="content32"><pre>'+
+'Station:     Lieksa<br>'+
+'Coordinates: 63.32108 30.04578<br>'+
+'Time(s):     06:30 <br>'+
+'</pre></div>';
+  var station_infowindow32 = new google.maps.InfoWindow({
+    content: station32,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position32 = {lat: 63.32108, lng: 30.04578};  var station_marker32 = new google.maps.Marker({
+    position: station_position32,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Lieksa'
+  });  station_marker32.addListener('click', function() {
+    station_infowindow32.open(map, station_marker32);
+  });  var station33 = '<div id="content33"><pre>'+
+'Station:     Liperi<br>'+
+'Coordinates: 62.65986 29.61158<br>'+
+'Time(s):     06:44 <br>'+
+'</pre></div>';
+  var station_infowindow33 = new google.maps.InfoWindow({
+    content: station33,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position33 = {lat: 62.65986, lng: 29.61158};  var station_marker33 = new google.maps.Marker({
+    position: station_position33,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Liperi'
+  });  station_marker33.addListener('click', function() {
+    station_infowindow33.open(map, station_marker33);
+  });  var station34 = '<div id="content34"><pre>'+
+'Station:     Oulu<br>'+
+'Coordinates: 65.00639 25.39328<br>'+
+'Time(s):     11:16 11:17 11:32 <br>'+
+'</pre></div>';
+  var station_infowindow34 = new google.maps.InfoWindow({
+    content: station34,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position34 = {lat: 65.00639, lng: 25.39328};  var station_marker34 = new google.maps.Marker({
+    position: station_position34,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Oulu'
+  });  station_marker34.addListener('click', function() {
+    station_infowindow34.open(map, station_marker34);
+  });  var station35 = '<div id="content35"><pre>'+
+'Station:     Oulu<br>'+
+'Coordinates: 65.01236 25.46816<br>'+
+'Time(s):     10:12 10:23 10:38 10:50 11:05 <br>'+
+'</pre></div>';
+  var station_infowindow35 = new google.maps.InfoWindow({
+    content: station35,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position35 = {lat: 65.01236, lng: 25.46816};  var station_marker35 = new google.maps.Marker({
+    position: station_position35,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Oulu'
+  });  station_marker35.addListener('click', function() {
+    station_infowindow35.open(map, station_marker35);
+  });  var station36 = '<div id="content36"><pre>'+
+'Station:     Nurmes<br>'+
+'Coordinates: 63.54205 29.13965<br>'+
+'Time(s):     07:29 <br>'+
+'</pre></div>';
+  var station_infowindow36 = new google.maps.InfoWindow({
+    content: station36,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position36 = {lat: 63.54205, lng: 29.13965};  var station_marker36 = new google.maps.Marker({
+    position: station_position36,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Nurmes'
+  });  station_marker36.addListener('click', function() {
+    station_infowindow36.open(map, station_marker36);
+  });  var station37 = '<div id="content37"><pre>'+
+'Station:     Porvoo<br>'+
+'Coordinates: 60.30375 25.54925<br>'+
+'Time(s):     00:31 <br>'+
+'</pre></div>';
+  var station_infowindow37 = new google.maps.InfoWindow({
+    content: station37,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position37 = {lat: 60.30375, lng: 25.54925};  var station_marker37 = new google.maps.Marker({
+    position: station_position37,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Porvoo'
+  });  station_marker37.addListener('click', function() {
+    station_infowindow37.open(map, station_marker37);
+  });  var station38 = '<div id="content38"><pre>'+
+'Station:     Porvoo<br>'+
+'Coordinates: 60.39233 25.66507<br>'+
+'Time(s):     00:46 <br>'+
+'</pre></div>';
+  var station_infowindow38 = new google.maps.InfoWindow({
+    content: station38,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position38 = {lat: 60.39233, lng: 25.66507};  var station_marker38 = new google.maps.Marker({
+    position: station_position38,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Porvoo'
+  });  station_marker38.addListener('click', function() {
+    station_infowindow38.open(map, station_marker38);
+  });  var station39 = '<div id="content39"><pre>'+
+'Station:     Parikkala<br>'+
+'Coordinates: 61.44467 29.46108<br>'+
+'Time(s):     03:42 03:57 <br>'+
+'</pre></div>';
+  var station_infowindow39 = new google.maps.InfoWindow({
+    content: station39,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position39 = {lat: 61.44467, lng: 29.46108};  var station_marker39 = new google.maps.Marker({
+    position: station_position39,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Parikkala'
+  });  station_marker39.addListener('click', function() {
+    station_infowindow39.open(map, station_marker39);
+  });  var station40 = '<div id="content40"><pre>'+
+'Station:     Punkaharju<br>'+
+'Coordinates: 61.80183 29.31512<br>'+
+'Time(s):     04:12 <br>'+
+'</pre></div>';
+  var station_infowindow40 = new google.maps.InfoWindow({
+    content: station40,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position40 = {lat: 61.80183, lng: 29.31512};  var station_marker40 = new google.maps.Marker({
+    position: station_position40,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Punkaharju'
+  });  station_marker40.addListener('click', function() {
+    station_infowindow40.open(map, station_marker40);
+  });  var station41 = '<div id="content41"><pre>'+
+'Station:     Pudasjärvi<br>'+
+'Coordinates: 65.38333 26.91667<br>'+
+'Time(s):     09:57 <br>'+
+'</pre></div>';
+  var station_infowindow41 = new google.maps.InfoWindow({
+    content: station41,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position41 = {lat: 65.38333, lng: 26.91667};  var station_marker41 = new google.maps.Marker({
+    position: station_position41,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Pudasjärvi'
+  });  station_marker41.addListener('click', function() {
+    station_infowindow41.open(map, station_marker41);
+  });  var station42 = '<div id="content42"><pre>'+
+'Station:     Rovaniemi<br>'+
+'Coordinates: 66.57941 26.01098<br>'+
+'Time(s):     13:49 14:04 14:19 <br>'+
+'</pre></div>';
+  var station_infowindow42 = new google.maps.InfoWindow({
+    content: station42,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position42 = {lat: 66.57941, lng: 26.01098};  var station_marker42 = new google.maps.Marker({
+    position: station_position42,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Rovaniemi'
+  });  station_marker42.addListener('click', function() {
+    station_infowindow42.open(map, station_marker42);
+  });  var station43 = '<div id="content43"><pre>'+
+'Station:     Rovaniemi<br>'+
+'Coordinates: 66.49832 25.70880<br>'+
+'Time(s):     13:04 13:19 13:34 <br>'+
+'</pre></div>';
+  var station_infowindow43 = new google.maps.InfoWindow({
+    content: station43,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-210, 25)
+  });  var station_position43 = {lat: 66.49832, lng: 25.7088};  var station_marker43 = new google.maps.Marker({
+    position: station_position43,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png' },
+    title: 'Rovaniemi'
+  });  station_marker43.addListener('click', function() {
+    station_infowindow43.open(map, station_marker43);
+  });  var sun_events = '<div id="sun_content"><pre>'+
+'23:55 Trip starts                   (60.17290 24.94219)<br>'+
+'07:23 Sun will rise in 1 hour       (63.34142 29.14993)<br>'+
+'08:23 Sun rises                     (64.04382 28.31713)<br>'+
+'14:57 Sun will set in 1 hour        (67.28855 26.61298)<br>'+
+'15:57 Sun sets                      (68.00949 26.92767)<br>'+
+'19:00 Trip ends                     (69.90902 27.02865)<br>'+
+'</pre></div>';
+  var sun_infowindow = new google.maps.InfoWindow({
+    content: sun_events,
+    pixelOffset: new google.maps.Size(250, 25)
+  });  var sun_position = {lat: 60.122903, lng: 24.9921911};  var sun_marker = new google.maps.Marker({
+    position: sun_position,
+    map: map,
+    icon: { url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png' },
+    title: 'Sun events'
+  });  sun_marker.addListener('click', function() {
+    sun_infowindow.open(map, sun_marker);
+  });sun_infowindow.open(map, sun_marker);
+  var sun_events1 = '<div id="sun_content1"><pre>'+
+'07:23 Sun will rise in 1 hour       <br>'+'</pre></div>';
+  var sun_infowindow1 = new google.maps.InfoWindow({
+    content: sun_events1,
+    pixelOffset: new google.maps.Size(180, 25)
+  });  var sun_position1 = {lat: 63.34142, lng: 29.14993};  var sun_marker1 = new google.maps.Marker({
+    position: sun_position1,
+    map: map,
+    icon: { url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png' },
+    title: 'Sun event 1'
+  });  sun_marker1.addListener('click', function() {
+    sun_infowindow1.open(map, sun_marker1);
+  });sun_infowindow1.open(map, sun_marker1);
+  var sun_events2 = '<div id="sun_content2"><pre>'+
+'08:23 Sun rises                     <br>'+'</pre></div>';
+  var sun_infowindow2 = new google.maps.InfoWindow({
+    content: sun_events2,
+    pixelOffset: new google.maps.Size(180, 25)
+  });  var sun_position2 = {lat: 64.04382, lng: 28.31713};  var sun_marker2 = new google.maps.Marker({
+    position: sun_position2,
+    map: map,
+    icon: { url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png' },
+    title: 'Sun event 2'
+  });  sun_marker2.addListener('click', function() {
+    sun_infowindow2.open(map, sun_marker2);
+  });sun_infowindow2.open(map, sun_marker2);
+  var sun_events3 = '<div id="sun_content3"><pre>'+
+'14:57 Sun will set in 1 hour        <br>'+'</pre></div>';
+  var sun_infowindow3 = new google.maps.InfoWindow({
+    content: sun_events3,
+    pixelOffset: new google.maps.Size(180, 25)
+  });  var sun_position3 = {lat: 67.28855, lng: 26.61298};  var sun_marker3 = new google.maps.Marker({
+    position: sun_position3,
+    map: map,
+    icon: { url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png' },
+    title: 'Sun event 3'
+  });  sun_marker3.addListener('click', function() {
+    sun_infowindow3.open(map, sun_marker3);
+  });sun_infowindow3.open(map, sun_marker3);
+  var sun_events4 = '<div id="sun_content4"><pre>'+
+'15:57 Sun sets                      <br>'+'</pre></div>';
+  var sun_infowindow4 = new google.maps.InfoWindow({
+    content: sun_events4,
+    pixelOffset: new google.maps.Size(180, 25)
+  });  var sun_position4 = {lat: 68.00949, lng: 26.92767};  var sun_marker4 = new google.maps.Marker({
+    position: sun_position4,
+    map: map,
+    icon: { url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png' },
+    title: 'Sun event 4'
+  });  sun_marker4.addListener('click', function() {
+    sun_infowindow4.open(map, sun_marker4);
+  });sun_infowindow4.open(map, sun_marker4);
+  var sun_events5 = '<div id="sun_content5"><pre>'+
+'19:00 Trip ends                     <br>'+'</pre></div>';
+  var sun_infowindow5 = new google.maps.InfoWindow({
+    content: sun_events5,
+    pixelOffset: new google.maps.Size(180, 25)
+  });  var sun_position5 = {lat: 69.90902, lng: 27.02865};  var sun_marker5 = new google.maps.Marker({
+    position: sun_position5,
+    map: map,
+    icon: { url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png' },
+    title: 'Sun event 5'
+  });  sun_marker5.addListener('click', function() {
+    sun_infowindow5.open(map, sun_marker5);
+  });sun_infowindow5.open(map, sun_marker5);
+  var weatherpoint0 = '<div id="weathercontent0"><pre>'+
+'23:55<br>'+'Temperature     1,7 °C<br>'+'Pressure        992,9 mbar<br>'+'Humidity        94,2 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     9,6 m/s<br>'+'WindDirection   161,3° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow0 = new google.maps.InfoWindow({
+    content: weatherpoint0,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position0 = {lat: 60.172903, lng: 24.9421911};  var weather_marker0 = new google.maps.Marker({
+    position: weather_position0,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 0'
+  });  weather_marker0.addListener('click', function() {
+    weather_infowindow0.open(map, weather_marker0);
+  });  var weatherpoint1 = '<div id="weathercontent1"><pre>'+
+'23:55<br>'+'Temperature     1,7 °C<br>'+'Pressure        992,8 mbar<br>'+'Humidity        94,2 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     9,5 m/s<br>'+'WindDirection   161,3° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow1 = new google.maps.InfoWindow({
+    content: weatherpoint1,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position1 = {lat: 60.1729341, lng: 24.9433059};  var weather_marker1 = new google.maps.Marker({
+    position: weather_position1,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 1'
+  });  weather_marker1.addListener('click', function() {
+    weather_infowindow1.open(map, weather_marker1);
+  });  var weatherpoint2 = '<div id="weathercontent2"><pre>'+
+'23:56<br>'+'Temperature     1,7 °C<br>'+'Pressure        992,8 mbar<br>'+'Humidity        94,3 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     9,5 m/s<br>'+'WindDirection   161,2° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow2 = new google.maps.InfoWindow({
+    content: weatherpoint2,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position2 = {lat: 60.1770955, lng: 24.9421428};  var weather_marker2 = new google.maps.Marker({
+    position: weather_position2,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 2'
+  });  weather_marker2.addListener('click', function() {
+    weather_infowindow2.open(map, weather_marker2);
+  });  var weatherpoint3 = '<div id="weathercontent3"><pre>'+
+'23:58<br>'+'Temperature     1,7 °C<br>'+'Pressure        992,8 mbar<br>'+'Humidity        94,3 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     9,5 m/s<br>'+'WindDirection   161,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow3 = new google.maps.InfoWindow({
+    content: weatherpoint3,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position3 = {lat: 60.1758042, lng: 24.9502698};  var weather_marker3 = new google.maps.Marker({
+    position: weather_position3,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 3'
+  });  weather_marker3.addListener('click', function() {
+    weather_infowindow3.open(map, weather_marker3);
+  });  var weatherpoint4 = '<div id="weathercontent4"><pre>'+
+'23:58<br>'+'Temperature     1,7 °C<br>'+'Pressure        992,8 mbar<br>'+'Humidity        94,3 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     9,5 m/s<br>'+'WindDirection   161,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow4 = new google.maps.InfoWindow({
+    content: weatherpoint4,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position4 = {lat: 60.1768855, lng: 24.9501131};  var weather_marker4 = new google.maps.Marker({
+    position: weather_position4,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 4'
+  });  weather_marker4.addListener('click', function() {
+    weather_infowindow4.open(map, weather_marker4);
+  });  var weatherpoint5 = '<div id="weathercontent5"><pre>'+
+'23:59<br>'+'Temperature     1,6 °C<br>'+'Pressure        992,8 mbar<br>'+'Humidity        94,4 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     9,1 m/s<br>'+'WindDirection   161,5° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow5 = new google.maps.InfoWindow({
+    content: weatherpoint5,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position5 = {lat: 60.1797167, lng: 24.9504713};  var weather_marker5 = new google.maps.Marker({
+    position: weather_position5,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 5'
+  });  weather_marker5.addListener('click', function() {
+    weather_infowindow5.open(map, weather_marker5);
+  });  var weatherpoint6 = '<div id="weathercontent6"><pre>'+
+'00:07<br>'+'Temperature     1,5 °C<br>'+'Pressure        992,7 mbar<br>'+'Humidity        94,6 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     8,7 m/s<br>'+'WindDirection   161,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow6 = new google.maps.InfoWindow({
+    content: weatherpoint6,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position6 = {lat: 60.2030134, lng: 24.9651747};  var weather_marker6 = new google.maps.Marker({
+    position: weather_position6,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 6'
+  });  weather_marker6.addListener('click', function() {
+    weather_infowindow6.open(map, weather_marker6);
+  });  var weatherpoint7 = '<div id="weathercontent7"><pre>'+
+'00:09<br>'+'Temperature     1,5 °C<br>'+'Pressure        992,6 mbar<br>'+'Humidity        94,6 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     8,6 m/s<br>'+'WindDirection   161,4° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow7 = new google.maps.InfoWindow({
+    content: weatherpoint7,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position7 = {lat: 60.2148295, lng: 24.9727905};  var weather_marker7 = new google.maps.Marker({
+    position: weather_position7,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 7'
+  });  weather_marker7.addListener('click', function() {
+    weather_infowindow7.open(map, weather_marker7);
+  });  var weatherpoint8 = '<div id="weathercontent8"><pre>'+
+'00:13<br>'+'Temperature     1,6 °C<br>'+'Pressure        992,8 mbar<br>'+'Humidity        94,7 %<br>'+'DewPoint        0,6 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     8,6 m/s<br>'+'WindDirection   161,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow8 = new google.maps.InfoWindow({
+    content: weatherpoint8,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position8 = {lat: 60.2486853, lng: 25.0626104};  var weather_marker8 = new google.maps.Marker({
+    position: weather_position8,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 8'
+  });  weather_marker8.addListener('click', function() {
+    weather_infowindow8.open(map, weather_marker8);
+  });  var weatherpoint9 = '<div id="weathercontent9"><pre>'+
+'00:16<br>'+'Temperature     1,6 °C<br>'+'Pressure        993,0 mbar<br>'+'Humidity        95,5 %<br>'+'DewPoint        0,7 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     7,4 m/s<br>'+'WindDirection   161,2° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow9 = new google.maps.InfoWindow({
+    content: weatherpoint9,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position9 = {lat: 60.2587907, lng: 25.1347668};  var weather_marker9 = new google.maps.Marker({
+    position: weather_position9,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 9'
+  });  weather_marker9.addListener('click', function() {
+    weather_infowindow9.open(map, weather_marker9);
+  });  var weatherpoint10 = '<div id="weathercontent10"><pre>'+
+'00:31<br>'+'Temperature     1,6 °C<br>'+'Pressure        993,2 mbar<br>'+'Humidity        97,0 %<br>'+'DewPoint        1,0 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     5,3 m/s<br>'+'WindDirection   162,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow10 = new google.maps.InfoWindow({
+    content: weatherpoint10,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position10 = {lat: 60.356449094260235, lng: 25.529704046867135};  var weather_marker10 = new google.maps.Marker({
+    position: weather_position10,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 10'
+  });  weather_marker10.addListener('click', function() {
+    weather_infowindow10.open(map, weather_marker10);
+  });  var weatherpoint11 = '<div id="weathercontent11"><pre>'+
+'00:46<br>'+'Temperature     1,4 °C<br>'+'Pressure        993,5 mbar<br>'+'Humidity        97,8 %<br>'+'DewPoint        1,0 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     4,5 m/s<br>'+'WindDirection   162,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow11 = new google.maps.InfoWindow({
+    content: weatherpoint11,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position11 = {lat: 60.489377412195076, lng: 25.909508151100326};  var weather_marker11 = new google.maps.Marker({
+    position: weather_position11,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 11'
+  });  weather_marker11.addListener('click', function() {
+    weather_infowindow11.open(map, weather_marker11);
+  });  var weatherpoint12 = '<div id="weathercontent12"><pre>'+
+'00:47<br>'+'Temperature     1,2 °C<br>'+'Pressure        993,9 mbar<br>'+'Humidity        97,8 %<br>'+'DewPoint        0,8 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     4,6 m/s<br>'+'WindDirection   161,4° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow12 = new google.maps.InfoWindow({
+    content: weatherpoint12,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position12 = {lat: 60.4919816, lng: 25.9468075};  var weather_marker12 = new google.maps.Marker({
+    position: weather_position12,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 12'
+  });  weather_marker12.addListener('click', function() {
+    weather_infowindow12.open(map, weather_marker12);
+  });  var weatherpoint13 = '<div id="weathercontent13"><pre>'+
+'00:48<br>'+'Temperature     1,2 °C<br>'+'Pressure        993,8 mbar<br>'+'Humidity        97,8 %<br>'+'DewPoint        0,8 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     4,6 m/s<br>'+'WindDirection   161,2° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow13 = new google.maps.InfoWindow({
+    content: weatherpoint13,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position13 = {lat: 60.4910782, lng: 25.9585806};  var weather_marker13 = new google.maps.Marker({
+    position: weather_position13,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 13'
+  });  weather_marker13.addListener('click', function() {
+    weather_infowindow13.open(map, weather_marker13);
+  });  var weatherpoint14 = '<div id="weathercontent14"><pre>'+
+'00:57<br>'+'Temperature     1,2 °C<br>'+'Pressure        993,8 mbar<br>'+'Humidity        97,9 %<br>'+'DewPoint        0,8 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     4,6 m/s<br>'+'WindDirection   161,0° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow14 = new google.maps.InfoWindow({
+    content: weatherpoint14,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position14 = {lat: 60.5902473, lng: 26.0920021};  var weather_marker14 = new google.maps.Marker({
+    position: weather_position14,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 14'
+  });  weather_marker14.addListener('click', function() {
+    weather_infowindow14.open(map, weather_marker14);
+  });  var weatherpoint15 = '<div id="weathercontent15"><pre>'+
+'01:12<br>'+'Temperature     1,1 °C<br>'+'Pressure        993,6 mbar<br>'+'Humidity        98,4 %<br>'+'DewPoint        0,8 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     4,2 m/s<br>'+'WindDirection   160,7° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow15 = new google.maps.InfoWindow({
+    content: weatherpoint15,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position15 = {lat: 60.7127860509092, lng: 26.35879311525746};  var weather_marker15 = new google.maps.Marker({
+    position: weather_position15,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 15'
+  });  weather_marker15.addListener('click', function() {
+    weather_infowindow15.open(map, weather_marker15);
+  });  var weatherpoint16 = '<div id="weathercontent16"><pre>'+
+'01:27<br>'+'Temperature     0,9 °C<br>'+'Pressure        993,8 mbar<br>'+'Humidity        98,9 %<br>'+'DewPoint        0,7 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     3,8 m/s<br>'+'WindDirection   160,7° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow16 = new google.maps.InfoWindow({
+    content: weatherpoint16,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position16 = {lat: 60.8701935, lng: 26.6005293};  var weather_marker16 = new google.maps.Marker({
+    position: weather_position16,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 16'
+  });  weather_marker16.addListener('click', function() {
+    weather_infowindow16.open(map, weather_marker16);
+  });  var weatherpoint17 = '<div id="weathercontent17"><pre>'+
+'01:42<br>'+'Temperature     0,8 °C<br>'+'Pressure        993,8 mbar<br>'+'Humidity        98,9 %<br>'+'DewPoint        0,6 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     3,9 m/s<br>'+'WindDirection   160,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow17 = new google.maps.InfoWindow({
+    content: weatherpoint17,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position17 = {lat: 60.89922612923085, lng: 26.916936030059276};  var weather_marker17 = new google.maps.Marker({
+    position: weather_position17,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 17'
+  });  weather_marker17.addListener('click', function() {
+    weather_infowindow17.open(map, weather_marker17);
+  });  var weatherpoint18 = '<div id="weathercontent18"><pre>'+
+'01:57<br>'+'Temperature     1,0 °C<br>'+'Pressure        994,5 mbar<br>'+'Humidity        97,7 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     5,7 m/s<br>'+'WindDirection   159,0° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow18 = new google.maps.InfoWindow({
+    content: weatherpoint18,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position18 = {lat: 60.90579309850346, lng: 27.237179223810507};  var weather_marker18 = new google.maps.Marker({
+    position: weather_position18,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 18'
+  });  weather_marker18.addListener('click', function() {
+    weather_infowindow18.open(map, weather_marker18);
+  });  var weatherpoint19 = '<div id="weathercontent19"><pre>'+
+'02:12<br>'+'Temperature     1,0 °C<br>'+'Pressure        995,1 mbar<br>'+'Humidity        97,2 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     6,3 m/s<br>'+'WindDirection   163,4° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow19 = new google.maps.InfoWindow({
+    content: weatherpoint19,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position19 = {lat: 60.92483081960555, lng: 27.55810694862555};  var weather_marker19 = new google.maps.Marker({
+    position: weather_position19,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 19'
+  });  weather_marker19.addListener('click', function() {
+    weather_infowindow19.open(map, weather_marker19);
+  });  var weatherpoint20 = '<div id="weathercontent20"><pre>'+
+'02:27<br>'+'Temperature     0,9 °C<br>'+'Pressure        995,1 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   169,3° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow20 = new google.maps.InfoWindow({
+    content: weatherpoint20,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position20 = {lat: 60.97821042728641, lng: 27.87375132416921};  var weather_marker20 = new google.maps.Marker({
+    position: weather_position20,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 20'
+  });  weather_marker20.addListener('click', function() {
+    weather_infowindow20.open(map, weather_marker20);
+  });  var weatherpoint21 = '<div id="weathercontent21"><pre>'+
+'02:42<br>'+'Temperature     1,1 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        96,9 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     7,6 m/s<br>'+'WindDirection   166,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow21 = new google.maps.InfoWindow({
+    content: weatherpoint21,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position21 = {lat: 61.04135548960891, lng: 28.187135608193138};  var weather_marker21 = new google.maps.Marker({
+    position: weather_position21,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 21'
+  });  weather_marker21.addListener('click', function() {
+    weather_infowindow21.open(map, weather_marker21);
+  });  var weatherpoint22 = '<div id="weathercontent22"><pre>'+
+'02:57<br>'+'Temperature     1,2 °C<br>'+'Pressure        995,4 mbar<br>'+'Humidity        97,2 %<br>'+'DewPoint        0,7 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     6,9 m/s<br>'+'WindDirection   163,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow22 = new google.maps.InfoWindow({
+    content: weatherpoint22,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position22 = {lat: 61.121296303329885, lng: 28.497840487513074};  var weather_marker22 = new google.maps.Marker({
+    position: weather_position22,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 22'
+  });  weather_marker22.addListener('click', function() {
+    weather_infowindow22.open(map, weather_marker22);
+  });  var weatherpoint23 = '<div id="weathercontent23"><pre>'+
+'03:12<br>'+'Temperature     1,2 °C<br>'+'Pressure        995,4 mbar<br>'+'Humidity        98,3 %<br>'+'DewPoint        0,8 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,6 m/s<br>'+'WindDirection   163,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow23 = new google.maps.InfoWindow({
+    content: weatherpoint23,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position23 = {lat: 61.200122848923954, lng: 28.80928301441888};  var weather_marker23 = new google.maps.Marker({
+    position: weather_position23,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 23'
+  });  weather_marker23.addListener('click', function() {
+    weather_infowindow23.open(map, weather_marker23);
+  });  var weatherpoint24 = '<div id="weathercontent24"><pre>'+
+'03:27<br>'+'Temperature     1,1 °C<br>'+'Pressure        995,5 mbar<br>'+'Humidity        98,6 %<br>'+'DewPoint        0,8 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,2 m/s<br>'+'WindDirection   165,5° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow24 = new google.maps.InfoWindow({
+    content: weatherpoint24,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position24 = {lat: 61.31834504649892, lng: 29.093740998419673};  var weather_marker24 = new google.maps.Marker({
+    position: weather_position24,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 24'
+  });  weather_marker24.addListener('click', function() {
+    weather_infowindow24.open(map, weather_marker24);
+  });  var weatherpoint25 = '<div id="weathercontent25"><pre>'+
+'03:42<br>'+'Temperature     1,0 °C<br>'+'Pressure        995,5 mbar<br>'+'Humidity        98,9 %<br>'+'DewPoint        0,8 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     3,7 m/s<br>'+'WindDirection   166,0° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow25 = new google.maps.InfoWindow({
+    content: weatherpoint25,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position25 = {lat: 61.42636135518299, lng: 29.392909620465147};  var weather_marker25 = new google.maps.Marker({
+    position: weather_position25,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 25'
+  });  weather_marker25.addListener('click', function() {
+    weather_infowindow25.open(map, weather_marker25);
+  });  var weatherpoint26 = '<div id="weathercontent26"><pre>'+
+'03:57<br>'+'Temperature     1,0 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,6 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     5,9 m/s<br>'+'WindDirection   164,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow26 = new google.maps.InfoWindow({
+    content: weatherpoint26,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position26 = {lat: 61.62204731136894, lng: 29.54631840672296};  var weather_marker26 = new google.maps.Marker({
+    position: weather_position26,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 26'
+  });  weather_marker26.addListener('click', function() {
+    weather_infowindow26.open(map, weather_marker26);
+  });  var weatherpoint27 = '<div id="weathercontent27"><pre>'+
+'04:12<br>'+'Temperature     0,7 °C<br>'+'Pressure        994,9 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     6,0 m/s<br>'+'WindDirection   159,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow27 = new google.maps.InfoWindow({
+    content: weatherpoint27,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position27 = {lat: 61.81957416154023, lng: 29.728214114308507};  var weather_marker27 = new google.maps.Marker({
+    position: weather_position27,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 27'
+  });  weather_marker27.addListener('click', function() {
+    weather_infowindow27.open(map, weather_marker27);
+  });  var weatherpoint28 = '<div id="weathercontent28"><pre>'+
+'04:27<br>'+'Temperature     0,3 °C<br>'+'Pressure        995,2 mbar<br>'+'Humidity        99,2 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,1 m/s<br>'+'WindDirection   152,5° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow28 = new google.maps.InfoWindow({
+    content: weatherpoint28,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position28 = {lat: 62.05777154388768, lng: 29.906144164277368};  var weather_marker28 = new google.maps.Marker({
+    position: weather_position28,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 28'
+  });  weather_marker28.addListener('click', function() {
+    weather_infowindow28.open(map, weather_marker28);
+  });  var weatherpoint29 = '<div id="weathercontent29"><pre>'+
+'04:42<br>'+'Temperature     0,2 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        99,3 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,1 m/s<br>'+'WindDirection   151,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow29 = new google.maps.InfoWindow({
+    content: weatherpoint29,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position29 = {lat: 62.27507509547064, lng: 30.12264611696213};  var weather_marker29 = new google.maps.Marker({
+    position: weather_position29,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 29'
+  });  weather_marker29.addListener('click', function() {
+    weather_infowindow29.open(map, weather_marker29);
+  });  var weatherpoint30 = '<div id="weathercontent30"><pre>'+
+'04:46<br>'+'Temperature     0,2 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        99,2 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,2 m/s<br>'+'WindDirection   150,5° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Light rain<br>'+
+'</pre></div>';
+  var weather_infowindow30 = new google.maps.InfoWindow({
+    content: weatherpoint30,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position30 = {lat: 62.3561065, lng: 30.1056537};  var weather_marker30 = new google.maps.Marker({
+    position: weather_position30,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 30'
+  });  weather_marker30.addListener('click', function() {
+    weather_infowindow30.open(map, weather_marker30);
+  });  var weatherpoint31 = '<div id="weathercontent31"><pre>'+
+'04:54<br>'+'Temperature     0,2 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        99,1 %<br>'+'DewPoint        -0,0 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,2 m/s<br>'+'WindDirection   149,4° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Partly cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow31 = new google.maps.InfoWindow({
+    content: weatherpoint31,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position31 = {lat: 62.3795782, lng: 30.2624409};  var weather_marker31 = new google.maps.Marker({
+    position: weather_position31,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 31'
+  });  weather_marker31.addListener('click', function() {
+    weather_infowindow31.open(map, weather_marker31);
+  });  var weatherpoint32 = '<div id="weathercontent32"><pre>'+
+'04:57<br>'+'Temperature     0,2 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        99,1 %<br>'+'DewPoint        -0,0 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,2 m/s<br>'+'WindDirection   149,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Partly cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow32 = new google.maps.InfoWindow({
+    content: weatherpoint32,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position32 = {lat: 62.3869702, lng: 30.3295466};  var weather_marker32 = new google.maps.Marker({
+    position: weather_position32,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 32'
+  });  weather_marker32.addListener('click', function() {
+    weather_infowindow32.open(map, weather_marker32);
+  });  var weatherpoint33 = '<div id="weathercontent33"><pre>'+
+'05:02<br>'+'Temperature     0,1 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        99,1 %<br>'+'DewPoint        -0,0 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,2 m/s<br>'+'WindDirection   150,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow33 = new google.maps.InfoWindow({
+    content: weatherpoint33,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position33 = {lat: 62.4266119, lng: 30.3489354};  var weather_marker33 = new google.maps.Marker({
+    position: weather_position33,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 33'
+  });  weather_marker33.addListener('click', function() {
+    weather_infowindow33.open(map, weather_marker33);
+  });  var weatherpoint34 = '<div id="weathercontent34"><pre>'+
+'05:17<br>'+'Temperature     0,1 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        99,1 %<br>'+'DewPoint        -0,0 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,3 m/s<br>'+'WindDirection   152,3° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow34 = new google.maps.InfoWindow({
+    content: weatherpoint34,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position34 = {lat: 62.53368563340078, lng: 30.520860215891027};  var weather_marker34 = new google.maps.Marker({
+    position: weather_position34,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 34'
+  });  weather_marker34.addListener('click', function() {
+    weather_infowindow34.open(map, weather_marker34);
+  });  var weatherpoint35 = '<div id="weathercontent35"><pre>'+
+'05:18<br>'+'Temperature     0,1 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        99,1 %<br>'+'DewPoint        -0,0 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,3 m/s<br>'+'WindDirection   152,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow35 = new google.maps.InfoWindow({
+    content: weatherpoint35,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position35 = {lat: 62.5404918, lng: 30.5398507};  var weather_marker35 = new google.maps.Marker({
+    position: weather_position35,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 35'
+  });  weather_marker35.addListener('click', function() {
+    weather_infowindow35.open(map, weather_marker35);
+  });  var weatherpoint36 = '<div id="weathercontent36"><pre>'+
+'05:21<br>'+'Temperature     0,1 °C<br>'+'Pressure        995,0 mbar<br>'+'Humidity        98,4 %<br>'+'DewPoint        -0,2 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,3 m/s<br>'+'WindDirection   158,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow36 = new google.maps.InfoWindow({
+    content: weatherpoint36,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position36 = {lat: 62.5556214, lng: 30.5250799};  var weather_marker36 = new google.maps.Marker({
+    position: weather_position36,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 36'
+  });  weather_marker36.addListener('click', function() {
+    weather_infowindow36.open(map, weather_marker36);
+  });  var weatherpoint37 = '<div id="weathercontent37"><pre>'+
+'05:36<br>'+'Temperature     0,0 °C<br>'+'Pressure        994,9 mbar<br>'+'Humidity        97,7 %<br>'+'DewPoint        -0,4 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,3 m/s<br>'+'WindDirection   163,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Partly cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow37 = new google.maps.InfoWindow({
+    content: weatherpoint37,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position37 = {lat: 62.623576839966816, lng: 30.857889704498042};  var weather_marker37 = new google.maps.Marker({
+    position: weather_position37,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 37'
+  });  weather_marker37.addListener('click', function() {
+    weather_infowindow37.open(map, weather_marker37);
+  });  var weatherpoint38 = '<div id="weathercontent38"><pre>'+
+'05:40<br>'+'Temperature     0,0 °C<br>'+'Pressure        994,9 mbar<br>'+'Humidity        97,7 %<br>'+'DewPoint        -0,4 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,3 m/s<br>'+'WindDirection   163,7° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Partly cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow38 = new google.maps.InfoWindow({
+    content: weatherpoint38,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position38 = {lat: 62.6678632, lng: 30.9395334};  var weather_marker38 = new google.maps.Marker({
+    position: weather_position38,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 38'
+  });  weather_marker38.addListener('click', function() {
+    weather_infowindow38.open(map, weather_marker38);
+  });  var weatherpoint39 = '<div id="weathercontent39"><pre>'+
+'05:40<br>'+'Temperature     0,0 °C<br>'+'Pressure        994,9 mbar<br>'+'Humidity        97,7 %<br>'+'DewPoint        -0,4 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,4 m/s<br>'+'WindDirection   163,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Partly cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow39 = new google.maps.InfoWindow({
+    content: weatherpoint39,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position39 = {lat: 62.6679319, lng: 30.9396746};  var weather_marker39 = new google.maps.Marker({
+    position: weather_position39,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 39'
+  });  weather_marker39.addListener('click', function() {
+    weather_infowindow39.open(map, weather_marker39);
+  });  var weatherpoint40 = '<div id="weathercontent40"><pre>'+
+'05:42<br>'+'Temperature     0,0 °C<br>'+'Pressure        994,8 mbar<br>'+'Humidity        97,7 %<br>'+'DewPoint        -0,4 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     4,4 m/s<br>'+'WindDirection   164,4° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Partly cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow40 = new google.maps.InfoWindow({
+    content: weatherpoint40,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position40 = {lat: 62.6810479, lng: 30.9443821};  var weather_marker40 = new google.maps.Marker({
+    position: weather_position40,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 40'
+  });  weather_marker40.addListener('click', function() {
+    weather_infowindow40.open(map, weather_marker40);
+  });  var weatherpoint41 = '<div id="weathercontent41"><pre>'+
+'05:57<br>'+'Temperature     0,2 °C<br>'+'Pressure        994,3 mbar<br>'+'Humidity        97,9 %<br>'+'DewPoint        -0,2 °C<br>'+'Precipitation1h 0,0 mm<br>'+'WindSpeedMS     5,2 m/s<br>'+'WindDirection   164,4° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Partly cloudy<br>'+
+'</pre></div>';
+  var weather_infowindow41 = new google.maps.InfoWindow({
+    content: weatherpoint41,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position41 = {lat: 62.75645906199291, lng: 30.60835019582518};  var weather_marker41 = new google.maps.Marker({
+    position: weather_position41,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 41'
+  });  weather_marker41.addListener('click', function() {
+    weather_infowindow41.open(map, weather_marker41);
+  });  var weatherpoint42 = '<div id="weathercontent42"><pre>'+
+'06:12<br>'+'Temperature     0,4 °C<br>'+'Pressure        993,7 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     5,9 m/s<br>'+'WindDirection   162,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow42 = new google.maps.InfoWindow({
+    content: weatherpoint42,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position42 = {lat: 62.7720419276904, lng: 30.253670848704246};  var weather_marker42 = new google.maps.Marker({
+    position: weather_position42,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 42'
+  });  weather_marker42.addListener('click', function() {
+    weather_infowindow42.open(map, weather_marker42);
+  });  var weatherpoint43 = '<div id="weathercontent43"><pre>'+
+'06:17<br>'+'Temperature     0,4 °C<br>'+'Pressure        993,7 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     5,9 m/s<br>'+'WindDirection   162,5° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow43 = new google.maps.InfoWindow({
+    content: weatherpoint43,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position43 = {lat: 62.793465, lng: 30.1585492};  var weather_marker43 = new google.maps.Marker({
+    position: weather_position43,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 43'
+  });  weather_marker43.addListener('click', function() {
+    weather_infowindow43.open(map, weather_marker43);
+  });  var weatherpoint44 = '<div id="weathercontent44"><pre>'+
+'06:19<br>'+'Temperature     0,4 °C<br>'+'Pressure        993,7 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     5,9 m/s<br>'+'WindDirection   162,4° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow44 = new google.maps.InfoWindow({
+    content: weatherpoint44,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position44 = {lat: 62.8083191, lng: 30.1508627};  var weather_marker44 = new google.maps.Marker({
+    position: weather_position44,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 44'
+  });  weather_marker44.addListener('click', function() {
+    weather_infowindow44.open(map, weather_marker44);
+  });  var weatherpoint45 = '<div id="weathercontent45"><pre>'+
+'06:19<br>'+'Temperature     0,5 °C<br>'+'Pressure        993,3 mbar<br>'+'Humidity        97,9 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     5,0 m/s<br>'+'WindDirection   166,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow45 = new google.maps.InfoWindow({
+    content: weatherpoint45,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position45 = {lat: 62.8073757, lng: 30.1433097};  var weather_marker45 = new google.maps.Marker({
+    position: weather_position45,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 45'
+  });  weather_marker45.addListener('click', function() {
+    weather_infowindow45.open(map, weather_marker45);
+  });  var weatherpoint46 = '<div id="weathercontent46"><pre>'+
+'06:30<br>'+'Temperature     0,4 °C<br>'+'Pressure        993,1 mbar<br>'+'Humidity        98,2 %<br>'+'DewPoint        0,0 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     4,3 m/s<br>'+'WindDirection   165,2° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow46 = new google.maps.InfoWindow({
+    content: weatherpoint46,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position46 = {lat: 62.9352313, lng: 30.1130869};  var weather_marker46 = new google.maps.Marker({
+    position: weather_position46,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 46'
+  });  weather_marker46.addListener('click', function() {
+    weather_infowindow46.open(map, weather_marker46);
+  });  var weatherpoint47 = '<div id="weathercontent47"><pre>'+
+'06:44<br>'+'Temperature     0,4 °C<br>'+'Pressure        992,5 mbar<br>'+'Humidity        97,7 %<br>'+'DewPoint        -0,1 °C<br>'+'Precipitation1h 0,5 mm<br>'+'WindSpeedMS     4,5 m/s<br>'+'WindDirection   162,4° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow47 = new google.maps.InfoWindow({
+    content: weatherpoint47,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position47 = {lat: 62.9567714, lng: 29.8042859};  var weather_marker47 = new google.maps.Marker({
+    position: weather_position47,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 47'
+  });  weather_marker47.addListener('click', function() {
+    weather_infowindow47.open(map, weather_marker47);
+  });  var weatherpoint48 = '<div id="weathercontent48"><pre>'+
+'06:59<br>'+'Temperature     0,5 °C<br>'+'Pressure        991,8 mbar<br>'+'Humidity        96,7 %<br>'+'DewPoint        -0,1 °C<br>'+'Precipitation1h 0,6 mm<br>'+'WindSpeedMS     4,5 m/s<br>'+'WindDirection   166,0° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow48 = new google.maps.InfoWindow({
+    content: weatherpoint48,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position48 = {lat: 63.1310695830685, lng: 29.559651403443016};  var weather_marker48 = new google.maps.Marker({
+    position: weather_position48,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 48'
+  });  weather_marker48.addListener('click', function() {
+    weather_infowindow48.open(map, weather_marker48);
+  });  var weatherpoint49 = '<div id="weathercontent49"><pre>'+
+'07:14<br>'+'Temperature     0,6 °C<br>'+'Pressure        991,4 mbar<br>'+'Humidity        96,7 %<br>'+'DewPoint        -0,1 °C<br>'+'Precipitation1h 0,5 mm<br>'+'WindSpeedMS     4,7 m/s<br>'+'WindDirection   160,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow49 = new google.maps.InfoWindow({
+    content: weatherpoint49,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position49 = {lat: 63.23557461310953, lng: 29.283609616806544};  var weather_marker49 = new google.maps.Marker({
+    position: weather_position49,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 49'
+  });  weather_marker49.addListener('click', function() {
+    weather_infowindow49.open(map, weather_marker49);
+  });  var weatherpoint50 = '<div id="weathercontent50"><pre>'+
+'07:29<br>'+'Temperature     0,6 °C<br>'+'Pressure        990,7 mbar<br>'+'Humidity        97,1 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     4,1 m/s<br>'+'WindDirection   155,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow50 = new google.maps.InfoWindow({
+    content: weatherpoint50,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position50 = {lat: 63.41583407105532, lng: 29.055945276752244};  var weather_marker50 = new google.maps.Marker({
+    position: weather_position50,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 50'
+  });  weather_marker50.addListener('click', function() {
+    weather_infowindow50.open(map, weather_marker50);
+  });  var weatherpoint51 = '<div id="weathercontent51"><pre>'+
+'07:44<br>'+'Temperature     0,7 °C<br>'+'Pressure        990,3 mbar<br>'+'Humidity        97,4 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     3,5 m/s<br>'+'WindDirection   156,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow51 = new google.maps.InfoWindow({
+    content: weatherpoint51,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position51 = {lat: 63.624017997118266, lng: 28.91729324371636};  var weather_marker51 = new google.maps.Marker({
+    position: weather_position51,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 51'
+  });  weather_marker51.addListener('click', function() {
+    weather_infowindow51.open(map, weather_marker51);
+  });  var weatherpoint52 = '<div id="weathercontent52"><pre>'+
+'07:59<br>'+'Temperature     0,8 °C<br>'+'Pressure        989,5 mbar<br>'+'Humidity        95,3 %<br>'+'DewPoint        -0,1 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     4,4 m/s<br>'+'WindDirection   159,5° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow52 = new google.maps.InfoWindow({
+    content: weatherpoint52,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position52 = {lat: 63.76326849247126, lng: 28.651573015057473};  var weather_marker52 = new google.maps.Marker({
+    position: weather_position52,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 52'
+  });  weather_marker52.addListener('click', function() {
+    weather_infowindow52.open(map, weather_marker52);
+  });  var weatherpoint53 = '<div id="weathercontent53"><pre>'+
+'08:14<br>'+'Temperature     0,9 °C<br>'+'Pressure        988,7 mbar<br>'+'Humidity        93,3 %<br>'+'DewPoint        -0,4 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     5,3 m/s<br>'+'WindDirection   162,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow53 = new google.maps.InfoWindow({
+    content: weatherpoint53,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position53 = {lat: 63.906046428595566, lng: 28.391189191500747};  var weather_marker53 = new google.maps.Marker({
+    position: weather_position53,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 53'
+  });  weather_marker53.addListener('click', function() {
+    weather_infowindow53.open(map, weather_marker53);
+  });  var weatherpoint54 = '<div id="weathercontent54"><pre>'+
+'08:22<br>'+'Temperature     0,9 °C<br>'+'Pressure        988,6 mbar<br>'+'Humidity        93,3 %<br>'+'DewPoint        -0,4 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     5,3 m/s<br>'+'WindDirection   162,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow54 = new google.maps.InfoWindow({
+    content: weatherpoint54,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position54 = {lat: 64.0335708, lng: 28.317299};  var weather_marker54 = new google.maps.Marker({
+    position: weather_position54,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 54'
+  });  weather_marker54.addListener('click', function() {
+    weather_infowindow54.open(map, weather_marker54);
+  });  var weatherpoint55 = '<div id="weathercontent55"><pre>'+
+'08:31<br>'+'Temperature     1,0 °C<br>'+'Pressure        988,6 mbar<br>'+'Humidity        93,3 %<br>'+'DewPoint        -0,4 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     5,3 m/s<br>'+'WindDirection   163,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow55 = new google.maps.InfoWindow({
+    content: weatherpoint55,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position55 = {lat: 64.1439658, lng: 28.3154697};  var weather_marker55 = new google.maps.Marker({
+    position: weather_position55,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 55'
+  });  weather_marker55.addListener('click', function() {
+    weather_infowindow55.open(map, weather_marker55);
+  });  var weatherpoint56 = '<div id="weathercontent56"><pre>'+
+'08:32<br>'+'Temperature     1,0 °C<br>'+'Pressure        988,5 mbar<br>'+'Humidity        93,4 %<br>'+'DewPoint        -0,3 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     5,3 m/s<br>'+'WindDirection   163,3° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow56 = new google.maps.InfoWindow({
+    content: weatherpoint56,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position56 = {lat: 64.1453095, lng: 28.3087948};  var weather_marker56 = new google.maps.Marker({
+    position: weather_position56,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 56'
+  });  weather_marker56.addListener('click', function() {
+    weather_infowindow56.open(map, weather_marker56);
+  });  var weatherpoint57 = '<div id="weathercontent57"><pre>'+
+'08:46<br>'+'Temperature     1,0 °C<br>'+'Pressure        988,0 mbar<br>'+'Humidity        93,4 %<br>'+'DewPoint        -0,3 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     5,3 m/s<br>'+'WindDirection   165,1° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow57 = new google.maps.InfoWindow({
+    content: weatherpoint57,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position57 = {lat: 64.224888, lng: 28.0690799};  var weather_marker57 = new google.maps.Marker({
+    position: weather_position57,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 57'
+  });  weather_marker57.addListener('click', function() {
+    weather_infowindow57.open(map, weather_marker57);
+  });  var weatherpoint58 = '<div id="weathercontent58"><pre>'+
+'08:53<br>'+'Temperature     0,9 °C<br>'+'Pressure        987,4 mbar<br>'+'Humidity        93,5 %<br>'+'DewPoint        -0,3 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     5,2 m/s<br>'+'WindDirection   166,7° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow58 = new google.maps.InfoWindow({
+    content: weatherpoint58,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position58 = {lat: 64.2945408, lng: 27.9931821};  var weather_marker58 = new google.maps.Marker({
+    position: weather_position58,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 58'
+  });  weather_marker58.addListener('click', function() {
+    weather_infowindow58.open(map, weather_marker58);
+  });  var weatherpoint59 = '<div id="weathercontent59"><pre>'+
+'08:54<br>'+'Temperature     0,9 °C<br>'+'Pressure        987,4 mbar<br>'+'Humidity        93,5 %<br>'+'DewPoint        -0,3 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     5,2 m/s<br>'+'WindDirection   166,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow59 = new google.maps.InfoWindow({
+    content: weatherpoint59,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position59 = {lat: 64.3006256, lng: 28.0094569};  var weather_marker59 = new google.maps.Marker({
+    position: weather_position59,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 59'
+  });  weather_marker59.addListener('click', function() {
+    weather_infowindow59.open(map, weather_marker59);
+  });  var weatherpoint60 = '<div id="weathercontent60"><pre>'+
+'08:57<br>'+'Temperature     1,0 °C<br>'+'Pressure        987,3 mbar<br>'+'Humidity        93,7 %<br>'+'DewPoint        -0,3 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     5,2 m/s<br>'+'WindDirection   166,4° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow60 = new google.maps.InfoWindow({
+    content: weatherpoint60,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position60 = {lat: 64.3247018, lng: 28.0610965};  var weather_marker60 = new google.maps.Marker({
+    position: weather_position60,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 60'
+  });  weather_marker60.addListener('click', function() {
+    weather_infowindow60.open(map, weather_marker60);
+  });  var weatherpoint61 = '<div id="weathercontent61"><pre>'+
+'09:12<br>'+'Temperature     1,1 °C<br>'+'Pressure        987,2 mbar<br>'+'Humidity        94,0 %<br>'+'DewPoint        -0,1 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     5,1 m/s<br>'+'WindDirection   167,0° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow61 = new google.maps.InfoWindow({
+    content: weatherpoint61,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position61 = {lat: 64.41833983590668, lng: 27.713905505999975};  var weather_marker61 = new google.maps.Marker({
+    position: weather_position61,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 61'
+  });  weather_marker61.addListener('click', function() {
+    weather_infowindow61.open(map, weather_marker61);
+  });  var weatherpoint62 = '<div id="weathercontent62"><pre>'+
+'09:27<br>'+'Temperature     1,1 °C<br>'+'Pressure        987,1 mbar<br>'+'Humidity        94,0 %<br>'+'DewPoint        -0,1 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     5,1 m/s<br>'+'WindDirection   167,7° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow62 = new google.maps.InfoWindow({
+    content: weatherpoint62,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position62 = {lat: 64.48489866354528, lng: 27.339077644889677};  var weather_marker62 = new google.maps.Marker({
+    position: weather_position62,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 62'
+  });  weather_marker62.addListener('click', function() {
+    weather_infowindow62.open(map, weather_marker62);
+  });  var weatherpoint63 = '<div id="weathercontent63"><pre>'+
+'09:42<br>'+'Temperature     1,0 °C<br>'+'Pressure        986,3 mbar<br>'+'Humidity        95,4 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     4,3 m/s<br>'+'WindDirection   167,5° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow63 = new google.maps.InfoWindow({
+    content: weatherpoint63,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position63 = {lat: 64.55515885628712, lng: 26.9721683612817};  var weather_marker63 = new google.maps.Marker({
+    position: weather_position63,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 63'
+  });  weather_marker63.addListener('click', function() {
+    weather_infowindow63.open(map, weather_marker63);
+  });  var weatherpoint64 = '<div id="weathercontent64"><pre>'+
+'09:57<br>'+'Temperature     1,2 °C<br>'+'Pressure        984,7 mbar<br>'+'Humidity        93,7 %<br>'+'DewPoint        -0,1 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     4,5 m/s<br>'+'WindDirection   160,5° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow64 = new google.maps.InfoWindow({
+    content: weatherpoint64,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position64 = {lat: 64.62216190150887, lng: 26.59690494826027};  var weather_marker64 = new google.maps.Marker({
+    position: weather_position64,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 64'
+  });  weather_marker64.addListener('click', function() {
+    weather_infowindow64.open(map, weather_marker64);
+  });  var weatherpoint65 = '<div id="weathercontent65"><pre>'+
+'10:12<br>'+'Temperature     1,4 °C<br>'+'Pressure        984,0 mbar<br>'+'Humidity        90,2 %<br>'+'DewPoint        -0,6 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     5,3 m/s<br>'+'WindDirection   154,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow65 = new google.maps.InfoWindow({
+    content: weatherpoint65,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position65 = {lat: 64.77831519785977, lng: 26.28597820628356};  var weather_marker65 = new google.maps.Marker({
+    position: weather_position65,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 65'
+  });  weather_marker65.addListener('click', function() {
+    weather_infowindow65.open(map, weather_marker65);
+  });  var weatherpoint66 = '<div id="weathercontent66"><pre>'+
+'10:23<br>'+'Temperature     1,4 °C<br>'+'Pressure        984,0 mbar<br>'+'Humidity        90,0 %<br>'+'DewPoint        -0,6 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     5,2 m/s<br>'+'WindDirection   155,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow66 = new google.maps.InfoWindow({
+    content: weatherpoint66,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position66 = {lat: 64.8060336, lng: 26.0000867};  var weather_marker66 = new google.maps.Marker({
+    position: weather_position66,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 66'
+  });  weather_marker66.addListener('click', function() {
+    weather_infowindow66.open(map, weather_marker66);
+  });  var weatherpoint67 = '<div id="weathercontent67"><pre>'+
+'10:38<br>'+'Temperature     1,5 °C<br>'+'Pressure        984,0 mbar<br>'+'Humidity        89,8 %<br>'+'DewPoint        -0,6 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     5,1 m/s<br>'+'WindDirection   156,2° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow67 = new google.maps.InfoWindow({
+    content: weatherpoint67,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position67 = {lat: 64.9297435616257, lng: 25.74077622533087};  var weather_marker67 = new google.maps.Marker({
+    position: weather_position67,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 67'
+  });  weather_marker67.addListener('click', function() {
+    weather_infowindow67.open(map, weather_marker67);
+  });  var weatherpoint68 = '<div id="weathercontent68"><pre>'+
+'10:50<br>'+'Temperature     1,5 °C<br>'+'Pressure        984,0 mbar<br>'+'Humidity        89,6 %<br>'+'DewPoint        -0,6 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     5,0 m/s<br>'+'WindDirection   156,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow68 = new google.maps.InfoWindow({
+    content: weatherpoint68,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position68 = {lat: 65.0032883, lng: 25.5120798};  var weather_marker68 = new google.maps.Marker({
+    position: weather_position68,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 68'
+  });  weather_marker68.addListener('click', function() {
+    weather_infowindow68.open(map, weather_marker68);
+  });  var weatherpoint69 = '<div id="weathercontent69"><pre>'+
+'11:05<br>'+'Temperature     1,5 °C<br>'+'Pressure        983,9 mbar<br>'+'Humidity        90,0 %<br>'+'DewPoint        -0,6 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     5,1 m/s<br>'+'WindDirection   155,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow69 = new google.maps.InfoWindow({
+    content: weatherpoint69,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position69 = {lat: 65.1811800621969, lng: 25.42595834369948};  var weather_marker69 = new google.maps.Marker({
+    position: weather_position69,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 69'
+  });  weather_marker69.addListener('click', function() {
+    weather_infowindow69.open(map, weather_marker69);
+  });  var weatherpoint70 = '<div id="weathercontent70"><pre>'+
+'11:16<br>'+'Temperature     1,4 °C<br>'+'Pressure        983,9 mbar<br>'+'Humidity        90,2 %<br>'+'DewPoint        -0,5 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     5,2 m/s<br>'+'WindDirection   154,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow70 = new google.maps.InfoWindow({
+    content: weatherpoint70,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position70 = {lat: 65.3172866, lng: 25.3737817};  var weather_marker70 = new google.maps.Marker({
+    position: weather_position70,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 70'
+  });  weather_marker70.addListener('click', function() {
+    weather_infowindow70.open(map, weather_marker70);
+  });  var weatherpoint71 = '<div id="weathercontent71"><pre>'+
+'11:17<br>'+'Temperature     1,4 °C<br>'+'Pressure        983,9 mbar<br>'+'Humidity        90,7 %<br>'+'DewPoint        -0,5 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     5,2 m/s<br>'+'WindDirection   154,3° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow71 = new google.maps.InfoWindow({
+    content: weatherpoint71,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position71 = {lat: 65.3221137, lng: 25.3787802};  var weather_marker71 = new google.maps.Marker({
+    position: weather_position71,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 71'
+  });  weather_marker71.addListener('click', function() {
+    weather_infowindow71.open(map, weather_marker71);
+  });  var weatherpoint72 = '<div id="weathercontent72"><pre>'+
+'11:32<br>'+'Temperature     1,0 °C<br>'+'Pressure        983,4 mbar<br>'+'Humidity        94,5 %<br>'+'DewPoint        -0,1 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     5,5 m/s<br>'+'WindDirection   156,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow72 = new google.maps.InfoWindow({
+    content: weatherpoint72,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position72 = {lat: 65.54561475000783, lng: 25.24266683653515};  var weather_marker72 = new google.maps.Marker({
+    position: weather_position72,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 72'
+  });  weather_marker72.addListener('click', function() {
+    weather_infowindow72.open(map, weather_marker72);
+  });  var weatherpoint73 = '<div id="weathercontent73"><pre>'+
+'11:47<br>'+'Temperature     0,7 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        97,9 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,6 mm<br>'+'WindSpeedMS     5,7 m/s<br>'+'WindDirection   160,0° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow73 = new google.maps.InfoWindow({
+    content: weatherpoint73,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position73 = {lat: 65.66789811297417, lng: 24.97047056796308};  var weather_marker73 = new google.maps.Marker({
+    position: weather_position73,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 73'
+  });  weather_marker73.addListener('click', function() {
+    weather_infowindow73.open(map, weather_marker73);
+  });  var weatherpoint74 = '<div id="weathercontent74"><pre>'+
+'12:02<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,7 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   159,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow74 = new google.maps.InfoWindow({
+    content: weatherpoint74,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position74 = {lat: 65.70253926982427, lng: 24.657925451103065};  var weather_marker74 = new google.maps.Marker({
+    position: weather_position74,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 74'
+  });  weather_marker74.addListener('click', function() {
+    weather_infowindow74.open(map, weather_marker74);
+  });  var weatherpoint75 = '<div id="weathercontent75"><pre>'+
+'12:06<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,7 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   159,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow75 = new google.maps.InfoWindow({
+    content: weatherpoint75,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position75 = {lat: 65.7326003, lng: 24.5901258};  var weather_marker75 = new google.maps.Marker({
+    position: weather_position75,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 75'
+  });  weather_marker75.addListener('click', function() {
+    weather_infowindow75.open(map, weather_marker75);
+  });  var weatherpoint76 = '<div id="weathercontent76"><pre>'+
+'12:06<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,7 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   159,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow76 = new google.maps.InfoWindow({
+    content: weatherpoint76,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position76 = {lat: 65.7336333, lng: 24.593449};  var weather_marker76 = new google.maps.Marker({
+    position: weather_position76,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 76'
+  });  weather_marker76.addListener('click', function() {
+    weather_infowindow76.open(map, weather_marker76);
+  });  var weatherpoint77 = '<div id="weathercontent77"><pre>'+
+'12:07<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,7 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   159,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow77 = new google.maps.InfoWindow({
+    content: weatherpoint77,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position77 = {lat: 65.7329311, lng: 24.5859441};  var weather_marker77 = new google.maps.Marker({
+    position: weather_position77,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 77'
+  });  weather_marker77.addListener('click', function() {
+    weather_infowindow77.open(map, weather_marker77);
+  });  var weatherpoint78 = '<div id="weathercontent78"><pre>'+
+'12:08<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,7 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   159,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow78 = new google.maps.InfoWindow({
+    content: weatherpoint78,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position78 = {lat: 65.7322892, lng: 24.5772422};  var weather_marker78 = new google.maps.Marker({
+    position: weather_position78,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 78'
+  });  weather_marker78.addListener('click', function() {
+    weather_infowindow78.open(map, weather_marker78);
+  });  var weatherpoint79 = '<div id="weathercontent79"><pre>'+
+'12:09<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,7 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   159,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow79 = new google.maps.InfoWindow({
+    content: weatherpoint79,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position79 = {lat: 65.7369755, lng: 24.5661922};  var weather_marker79 = new google.maps.Marker({
+    position: weather_position79,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 79'
+  });  weather_marker79.addListener('click', function() {
+    weather_infowindow79.open(map, weather_marker79);
+  });  var weatherpoint80 = '<div id="weathercontent80"><pre>'+
+'12:10<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,8 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   159,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow80 = new google.maps.InfoWindow({
+    content: weatherpoint80,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position80 = {lat: 65.7363146, lng: 24.5643196};  var weather_marker80 = new google.maps.Marker({
+    position: weather_position80,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 80'
+  });  weather_marker80.addListener('click', function() {
+    weather_infowindow80.open(map, weather_marker80);
+  });  var weatherpoint81 = '<div id="weathercontent81"><pre>'+
+'12:10<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,8 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   159,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow81 = new google.maps.InfoWindow({
+    content: weatherpoint81,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position81 = {lat: 65.7377061, lng: 24.5684565};  var weather_marker81 = new google.maps.Marker({
+    position: weather_position81,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 81'
+  });  weather_marker81.addListener('click', function() {
+    weather_infowindow81.open(map, weather_marker81);
+  });  var weatherpoint82 = '<div id="weathercontent82"><pre>'+
+'12:11<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,8 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,8 mm<br>'+'WindSpeedMS     5,6 m/s<br>'+'WindDirection   159,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow82 = new google.maps.InfoWindow({
+    content: weatherpoint82,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position82 = {lat: 65.7398664, lng: 24.565309};  var weather_marker82 = new google.maps.Marker({
+    position: weather_position82,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 82'
+  });  weather_marker82.addListener('click', function() {
+    weather_infowindow82.open(map, weather_marker82);
+  });  var weatherpoint83 = '<div id="weathercontent83"><pre>'+
+'12:13<br>'+'Temperature     0,7 °C<br>'+'Pressure        982,7 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,8 mm<br>'+'WindSpeedMS     5,4 m/s<br>'+'WindDirection   159,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow83 = new google.maps.InfoWindow({
+    content: weatherpoint83,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position83 = {lat: 65.7447932, lng: 24.5852749};  var weather_marker83 = new google.maps.Marker({
+    position: weather_position83,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 83'
+  });  weather_marker83.addListener('click', function() {
+    weather_infowindow83.open(map, weather_marker83);
+  });  var weatherpoint84 = '<div id="weathercontent84"><pre>'+
+'12:19<br>'+'Temperature     0,7 °C<br>'+'Pressure        982,7 mbar<br>'+'Humidity        98,2 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,9 mm<br>'+'WindSpeedMS     5,1 m/s<br>'+'WindDirection   160,0° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow84 = new google.maps.InfoWindow({
+    content: weatherpoint84,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position84 = {lat: 65.8143722, lng: 24.4984661};  var weather_marker84 = new google.maps.Marker({
+    position: weather_position84,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 84'
+  });  weather_marker84.addListener('click', function() {
+    weather_infowindow84.open(map, weather_marker84);
+  });  var weatherpoint85 = '<div id="weathercontent85"><pre>'+
+'12:19<br>'+'Temperature     0,7 °C<br>'+'Pressure        982,7 mbar<br>'+'Humidity        98,2 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 1,0 mm<br>'+'WindSpeedMS     5,1 m/s<br>'+'WindDirection   160,0° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow85 = new google.maps.InfoWindow({
+    content: weatherpoint85,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position85 = {lat: 65.8188958, lng: 24.4927531};  var weather_marker85 = new google.maps.Marker({
+    position: weather_position85,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 85'
+  });  weather_marker85.addListener('click', function() {
+    weather_infowindow85.open(map, weather_marker85);
+  });  var weatherpoint86 = '<div id="weathercontent86"><pre>'+
+'12:34<br>'+'Temperature     0,7 °C<br>'+'Pressure        982,3 mbar<br>'+'Humidity        98,4 %<br>'+'DewPoint        0,4 °C<br>'+'Precipitation1h 0,6 mm<br>'+'WindSpeedMS     3,7 m/s<br>'+'WindDirection   165,6° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow86 = new google.maps.InfoWindow({
+    content: weatherpoint86,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position86 = {lat: 66.01992238959646, lng: 24.71231611450476};  var weather_marker86 = new google.maps.Marker({
+    position: weather_position86,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 86'
+  });  weather_marker86.addListener('click', function() {
+    weather_infowindow86.open(map, weather_marker86);
+  });  var weatherpoint87 = '<div id="weathercontent87"><pre>'+
+'12:49<br>'+'Temperature     0,9 °C<br>'+'Pressure        982,5 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   170,6° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow87 = new google.maps.InfoWindow({
+    content: weatherpoint87,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position87 = {lat: 66.14743249698203, lng: 24.96928503092792};  var weather_marker87 = new google.maps.Marker({
+    position: weather_position87,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 87'
+  });  weather_marker87.addListener('click', function() {
+    weather_infowindow87.open(map, weather_marker87);
+  });  var weatherpoint88 = '<div id="weathercontent88"><pre>'+
+'13:04<br>'+'Temperature     0,9 °C<br>'+'Pressure        982,9 mbar<br>'+'Humidity        97,8 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   169,2° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow88 = new google.maps.InfoWindow({
+    content: weatherpoint88,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position88 = {lat: 66.18239100892654, lng: 25.27045017581917};  var weather_marker88 = new google.maps.Marker({
+    position: weather_position88,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 88'
+  });  weather_marker88.addListener('click', function() {
+    weather_infowindow88.open(map, weather_marker88);
+  });  var weatherpoint89 = '<div id="weathercontent89"><pre>'+
+'13:19<br>'+'Temperature     0,9 °C<br>'+'Pressure        982,9 mbar<br>'+'Humidity        97,8 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   168,2° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow89 = new google.maps.InfoWindow({
+    content: weatherpoint89,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position89 = {lat: 66.39818902086348, lng: 25.386749020863487};  var weather_marker89 = new google.maps.Marker({
+    position: weather_position89,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 89'
+  });  weather_marker89.addListener('click', function() {
+    weather_infowindow89.open(map, weather_marker89);
+  });  var weatherpoint90 = '<div id="weathercontent90"><pre>'+
+'13:34<br>'+'Temperature     0,9 °C<br>'+'Pressure        983,0 mbar<br>'+'Humidity        97,9 %<br>'+'DewPoint        0,5 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     2,4 m/s<br>'+'WindDirection   166,2° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow90 = new google.maps.InfoWindow({
+    content: weatherpoint90,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position90 = {lat: 66.48870180887043, lng: 25.668557583534735};  var weather_marker90 = new google.maps.Marker({
+    position: weather_position90,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 90'
+  });  weather_marker90.addListener('click', function() {
+    weather_infowindow90.open(map, weather_marker90);
+  });  var weatherpoint91 = '<div id="weathercontent91"><pre>'+
+'13:49<br>'+'Temperature     0,8 °C<br>'+'Pressure        983,1 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,4 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     2,4 m/s<br>'+'WindDirection   164,3° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow91 = new google.maps.InfoWindow({
+    content: weatherpoint91,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position91 = {lat: 66.56704531578039, lng: 25.95596803143433};  var weather_marker91 = new google.maps.Marker({
+    position: weather_position91,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 91'
+  });  weather_marker91.addListener('click', function() {
+    weather_infowindow91.open(map, weather_marker91);
+  });  var weatherpoint92 = '<div id="weathercontent92"><pre>'+
+'14:04<br>'+'Temperature     0,8 °C<br>'+'Pressure        983,1 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,4 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     2,4 m/s<br>'+'WindDirection   163,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow92 = new google.maps.InfoWindow({
+    content: weatherpoint92,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position92 = {lat: 66.66752579961032, lng: 26.199172520329075};  var weather_marker92 = new google.maps.Marker({
+    position: weather_position92,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 92'
+  });  weather_marker92.addListener('click', function() {
+    weather_infowindow92.open(map, weather_marker92);
+  });  var weatherpoint93 = '<div id="weathercontent93"><pre>'+
+'14:19<br>'+'Temperature     0,7 °C<br>'+'Pressure        983,0 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   168,9° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow93 = new google.maps.InfoWindow({
+    content: weatherpoint93,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position93 = {lat: 66.8839162409166, lng: 26.181312992733275};  var weather_marker93 = new google.maps.Marker({
+    position: weather_position93,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 93'
+  });  weather_marker93.addListener('click', function() {
+    weather_infowindow93.open(map, weather_marker93);
+  });  var weatherpoint94 = '<div id="weathercontent94"><pre>'+
+'14:34<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,9 mbar<br>'+'Humidity        97,9 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   174,4° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow94 = new google.maps.InfoWindow({
+    content: weatherpoint94,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position94 = {lat: 67.02402435553832, lng: 26.416664037478213};  var weather_marker94 = new google.maps.Marker({
+    position: weather_position94,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 94'
+  });  weather_marker94.addListener('click', function() {
+    weather_infowindow94.open(map, weather_marker94);
+  });  var weatherpoint95 = '<div id="weathercontent95"><pre>'+
+'14:49<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,9 mbar<br>'+'Humidity        97,9 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   174,8° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow95 = new google.maps.InfoWindow({
+    content: weatherpoint95,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position95 = {lat: 67.16817232818651, lng: 26.64413357856494};  var weather_marker95 = new google.maps.Marker({
+    position: weather_position95,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 95'
+  });  weather_marker95.addListener('click', function() {
+    weather_infowindow95.open(map, weather_marker95);
+  });  var weatherpoint96 = '<div id="weathercontent96"><pre>'+
+'15:04<br>'+'Temperature     0,6 °C<br>'+'Pressure        983,0 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,1 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   174,9° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow96 = new google.maps.InfoWindow({
+    content: weatherpoint96,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position96 = {lat: 67.38999706501488, lng: 26.586733841074736};  var weather_marker96 = new google.maps.Marker({
+    position: weather_position96,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 96'
+  });  weather_marker96.addListener('click', function() {
+    weather_infowindow96.open(map, weather_marker96);
+  });  var weatherpoint97 = '<div id="weathercontent97"><pre>'+
+'15:07<br>'+'Temperature     0,6 °C<br>'+'Pressure        983,0 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   174,9° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow97 = new google.maps.InfoWindow({
+    content: weatherpoint97,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position97 = {lat: 67.4132159, lng: 26.58907};  var weather_marker97 = new google.maps.Marker({
+    position: weather_position97,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 97'
+  });  weather_marker97.addListener('click', function() {
+    weather_infowindow97.open(map, weather_marker97);
+  });  var weatherpoint98 = '<div id="weathercontent98"><pre>'+
+'15:08<br>'+'Temperature     0,5 °C<br>'+'Pressure        982,9 mbar<br>'+'Humidity        98,0 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   174,7° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow98 = new google.maps.InfoWindow({
+    content: weatherpoint98,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position98 = {lat: 67.4211617, lng: 26.588157};  var weather_marker98 = new google.maps.Marker({
+    position: weather_position98,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 98'
+  });  weather_marker98.addListener('click', function() {
+    weather_infowindow98.open(map, weather_marker98);
+  });  var weatherpoint99 = '<div id="weathercontent99"><pre>'+
+'15:23<br>'+'Temperature     0,5 °C<br>'+'Pressure        982,9 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     2,2 m/s<br>'+'WindDirection   174,5° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow99 = new google.maps.InfoWindow({
+    content: weatherpoint99,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position99 = {lat: 67.5895114651857, lng: 26.740502091983494};  var weather_marker99 = new google.maps.Marker({
+    position: weather_position99,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 99'
+  });  weather_marker99.addListener('click', function() {
+    weather_infowindow99.open(map, weather_marker99);
+  });  var weatherpoint100 = '<div id="weathercontent100"><pre>'+
+'15:38<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,7 mbar<br>'+'Humidity        95,8 %<br>'+'DewPoint        -0,2 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     3,2 m/s<br>'+'WindDirection   176,8° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow100 = new google.maps.InfoWindow({
+    content: weatherpoint100,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position100 = {lat: 67.82392820668427, lng: 26.75586291793705};  var weather_marker100 = new google.maps.Marker({
+    position: weather_position100,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 100'
+  });  weather_marker100.addListener('click', function() {
+    weather_infowindow100.open(map, weather_marker100);
+  });  var weatherpoint101 = '<div id="weathercontent101"><pre>'+
+'15:53<br>'+'Temperature     0,7 °C<br>'+'Pressure        982,6 mbar<br>'+'Humidity        93,5 %<br>'+'DewPoint        -0,6 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     4,2 m/s<br>'+'WindDirection   179,6° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow101 = new google.maps.InfoWindow({
+    content: weatherpoint101,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position101 = {lat: 67.98358714828686, lng: 26.868965273110504};  var weather_marker101 = new google.maps.Marker({
+    position: weather_position101,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 101'
+  });  weather_marker101.addListener('click', function() {
+    weather_infowindow101.open(map, weather_marker101);
+  });  var weatherpoint102 = '<div id="weathercontent102"><pre>'+
+'16:08<br>'+'Temperature     0,6 °C<br>'+'Pressure        982,5 mbar<br>'+'Humidity        93,5 %<br>'+'DewPoint        -0,6 °C<br>'+'Precipitation1h 0,2 mm<br>'+'WindSpeedMS     4,2 m/s<br>'+'WindDirection   179,5° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow102 = new google.maps.InfoWindow({
+    content: weatherpoint102,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position102 = {lat: 68.09292000276203, lng: 27.116738867716634};  var weather_marker102 = new google.maps.Marker({
+    position: weather_position102,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 102'
+  });  weather_marker102.addListener('click', function() {
+    weather_infowindow102.open(map, weather_marker102);
+  });  var weatherpoint103 = '<div id="weathercontent103"><pre>'+
+'16:23<br>'+'Temperature     0,5 °C<br>'+'Pressure        982,3 mbar<br>'+'Humidity        94,3 %<br>'+'DewPoint        -0,6 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     3,6 m/s<br>'+'WindDirection   181,6° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow103 = new google.maps.InfoWindow({
+    content: weatherpoint103,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position103 = {lat: 68.24590366762934, lng: 27.23731649764639};  var weather_marker103 = new google.maps.Marker({
+    position: weather_position103,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 103'
+  });  weather_marker103.addListener('click', function() {
+    weather_infowindow103.open(map, weather_marker103);
+  });  var weatherpoint104 = '<div id="weathercontent104"><pre>'+
+'16:38<br>'+'Temperature     0,5 °C<br>'+'Pressure        982,1 mbar<br>'+'Humidity        96,5 %<br>'+'DewPoint        -0,2 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     2,3 m/s<br>'+'WindDirection   174,8° S<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow104 = new google.maps.InfoWindow({
+    content: weatherpoint104,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position104 = {lat: 68.42954658042878, lng: 27.407810051742736};  var weather_marker104 = new google.maps.Marker({
+    position: weather_position104,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 104'
+  });  weather_marker104.addListener('click', function() {
+    weather_infowindow104.open(map, weather_marker104);
+  });  var weatherpoint105 = '<div id="weathercontent105"><pre>'+
+'16:53<br>'+'Temperature     0,7 °C<br>'+'Pressure        981,9 mbar<br>'+'Humidity        98,1 %<br>'+'DewPoint        0,3 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     1,5 m/s<br>'+'WindDirection   165,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow105 = new google.maps.InfoWindow({
+    content: weatherpoint105,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position105 = {lat: 68.59086589457571, lng: 27.468495563339538};  var weather_marker105 = new google.maps.Marker({
+    position: weather_position105,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 105'
+  });  weather_marker105.addListener('click', function() {
+    weather_infowindow105.open(map, weather_marker105);
+  });  var weatherpoint106 = '<div id="weathercontent106"><pre>'+
+'17:08<br>'+'Temperature     0,5 °C<br>'+'Pressure        981,8 mbar<br>'+'Humidity        98,3 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,5 mm<br>'+'WindSpeedMS     1,8 m/s<br>'+'WindDirection   159,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow106 = new google.maps.InfoWindow({
+    content: weatherpoint106,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position106 = {lat: 68.7447797175319, lng: 27.45259492784867};  var weather_marker106 = new google.maps.Marker({
+    position: weather_position106,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 106'
+  });  weather_marker106.addListener('click', function() {
+    weather_infowindow106.open(map, weather_marker106);
+  });  var weatherpoint107 = '<div id="weathercontent107"><pre>'+
+'17:23<br>'+'Temperature     0,3 °C<br>'+'Pressure        981,6 mbar<br>'+'Humidity        98,5 %<br>'+'DewPoint        0,0 °C<br>'+'Precipitation1h 0,5 mm<br>'+'WindSpeedMS     2,2 m/s<br>'+'WindDirection   153,5° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow107 = new google.maps.InfoWindow({
+    content: weatherpoint107,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position107 = {lat: 68.84947040049953, lng: 27.226119614333783};  var weather_marker107 = new google.maps.Marker({
+    position: weather_position107,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 107'
+  });  weather_marker107.addListener('click', function() {
+    weather_infowindow107.open(map, weather_marker107);
+  });  var weatherpoint108 = '<div id="weathercontent108"><pre>'+
+'17:38<br>'+'Temperature     0,3 °C<br>'+'Pressure        981,5 mbar<br>'+'Humidity        98,5 %<br>'+'DewPoint        0,0 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     2,1 m/s<br>'+'WindDirection   153,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow108 = new google.maps.InfoWindow({
+    content: weatherpoint108,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position108 = {lat: 68.92401805818781, lng: 26.961627315925952};  var weather_marker108 = new google.maps.Marker({
+    position: weather_position108,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 108'
+  });  weather_marker108.addListener('click', function() {
+    weather_infowindow108.open(map, weather_marker108);
+  });  var weatherpoint109 = '<div id="weathercontent109"><pre>'+
+'17:53<br>'+'Temperature     0,3 °C<br>'+'Pressure        981,4 mbar<br>'+'Humidity        98,5 %<br>'+'DewPoint        0,0 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     2,1 m/s<br>'+'WindDirection   153,9° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow109 = new google.maps.InfoWindow({
+    content: weatherpoint109,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position109 = {lat: 69.05162470356555, lng: 27.12278056811717};  var weather_marker109 = new google.maps.Marker({
+    position: weather_position109,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 109'
+  });  weather_marker109.addListener('click', function() {
+    weather_infowindow109.open(map, weather_marker109);
+  });  var weatherpoint110 = '<div id="weathercontent110"><pre>'+
+'18:08<br>'+'Temperature     0,3 °C<br>'+'Pressure        981,5 mbar<br>'+'Humidity        98,5 %<br>'+'DewPoint        0,0 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     2,1 m/s<br>'+'WindDirection   154,3° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow110 = new google.maps.InfoWindow({
+    content: weatherpoint110,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position110 = {lat: 69.23760932203466, lng: 27.247854222862646};  var weather_marker110 = new google.maps.Marker({
+    position: weather_position110,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 110'
+  });  weather_marker110.addListener('click', function() {
+    weather_infowindow110.open(map, weather_marker110);
+  });  var weatherpoint111 = '<div id="weathercontent111"><pre>'+
+'18:23<br>'+'Temperature     0,9 °C<br>'+'Pressure        981,3 mbar<br>'+'Humidity        96,2 %<br>'+'DewPoint        0,1 °C<br>'+'Precipitation1h 0,4 mm<br>'+'WindSpeedMS     2,7 m/s<br>'+'WindDirection   157,7° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow111 = new google.maps.InfoWindow({
+    content: weatherpoint111,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position111 = {lat: 69.44769194647168, lng: 27.23822921315198};  var weather_marker111 = new google.maps.Marker({
+    position: weather_position111,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 111'
+  });  weather_marker111.addListener('click', function() {
+    weather_infowindow111.open(map, weather_marker111);
+  });  var weatherpoint112 = '<div id="weathercontent112"><pre>'+
+'18:38<br>'+'Temperature     1,4 °C<br>'+'Pressure        981,2 mbar<br>'+'Humidity        93,9 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     3,3 m/s<br>'+'WindDirection   161,3° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow112 = new google.maps.InfoWindow({
+    content: weatherpoint112,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position112 = {lat: 69.62135922924072, lng: 27.1305733272956};  var weather_marker112 = new google.maps.Marker({
+    position: weather_position112,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 112'
+  });  weather_marker112.addListener('click', function() {
+    weather_infowindow112.open(map, weather_marker112);
+  });  var weatherpoint113 = '<div id="weathercontent113"><pre>'+
+'18:53<br>'+'Temperature     1,4 °C<br>'+'Pressure        981,2 mbar<br>'+'Humidity        93,8 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     3,3 m/s<br>'+'WindDirection   161,8° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow113 = new google.maps.InfoWindow({
+    content: weatherpoint113,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position113 = {lat: 69.8042736562589, lng: 26.99919585157066};  var weather_marker113 = new google.maps.Marker({
+    position: weather_position113,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 113'
+  });  weather_marker113.addListener('click', function() {
+    weather_infowindow113.open(map, weather_marker113);
+  });  var weatherpoint114 = '<div id="weathercontent114"><pre>'+
+'19:00<br>'+'Temperature     1,4 °C<br>'+'Pressure        981,2 mbar<br>'+'Humidity        93,8 %<br>'+'DewPoint        0,2 °C<br>'+'Precipitation1h 0,3 mm<br>'+'WindSpeedMS     3,3 m/s<br>'+'WindDirection   162,0° SSE<br>'+'TotalCloudCover 100,0 %<br>'+'WeatherSymbol3  Snow<br>'+
+'</pre></div>';
+  var weather_infowindow114 = new google.maps.InfoWindow({
+    content: weatherpoint114,
+    maxWidth: 400,
+    pixelOffset: new google.maps.Size(-125, 25)
+  });  var weather_position114 = {lat: 69.9090205, lng: 27.0286536};  var weather_marker114 = new google.maps.Marker({
+    position: weather_position114,
+    map: map,
+    icon: { url: 'http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2' },
+    title: 'Weather point 114'
+  });  weather_marker114.addListener('click', function() {
+    weather_infowindow114.open(map, weather_marker114);
+  });  var chart = '<div id="chart_content">'+
+  '<img width="480" alt="Temperature and rain" src="data:image/png;base64,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" />'+
+  '</div>';
+  var chart_infowindow = new google.maps.InfoWindow({
+    content: chart,
+    pixelOffset: new google.maps.Size(-280, 25)
+  });  var chart_position = {lat: 60.122903, lng: 24.892191099999998};  var chart_marker = new google.maps.Marker({
+    position: chart_position,
+    map: map,
+    icon: { url: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png' },
+    title: 'Temperature and rain'
+  });  chart_marker.addListener('click', function() {
+    chart_infowindow.open(map, chart_marker);
+  });chart_infowindow.open(map, chart_marker);
+  }
+function displayRoute(origin, destination, service, display) {
+  service.route({
+    origin: origin,
+    destination: destination,
+    waypoints: [{location: 'Ilomantsi'}, {location: 'Kemi'}],
+    provideRouteAlternatives: true,
+    travelMode: google.maps.TravelMode.DRIVING
+  }, function(response, status) {
+    if (status === google.maps.DirectionsStatus.OK) {
+      display.setDirections(response);
+      display.setRouteIndex(0);
+    } else {
+      alert('Could not display directions due to: ' + status);
+    }
+  });
+}    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvB2p97Ee-USxdOsOTyCa50HnW8H4PlRQ&signed_in=true&callback=initMap"></script>
+  </body>
+</html>

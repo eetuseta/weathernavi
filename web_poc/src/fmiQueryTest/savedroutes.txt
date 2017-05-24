@@ -1,0 +1,1 @@
+origin=Helsinki&destination=Utsjoki&mode=driving&waypoints=Ilomantsi|Kemi&alternatives=true
